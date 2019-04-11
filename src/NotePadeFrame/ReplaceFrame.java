@@ -1,7 +1,6 @@
 package NotePadeFrame;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -74,7 +73,7 @@ public class ReplaceFrame extends JFrame{
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                System.exit(FindFrame.DO_NOTHING_ON_CLOSE);
+                setDefaultCloseOperation(ReplaceFrame.DISPOSE_ON_CLOSE);
             }
         });
 
