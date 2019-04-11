@@ -1,14 +1,21 @@
 package NotePadeFrame;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StartFrame extends JFrame {
 
+    JFrame frame = new JFrame();
     public JPanel panel = new JPanel();
-    public JLabel[][] indexRowCol;
+    public JPanel statusPanel = new JPanel();
+    public String status = " kl ";
+    public int col = 0;
+    public int row = 0;
     public JTextArea textArea = new JTextArea();
     public JScrollPane scrollPane = new JScrollPane(textArea);
     private JLabel label = new JLabel();
@@ -21,7 +28,7 @@ public class StartFrame extends JFrame {
     JMenuItem newFile,open,save,saveAs, exit;
     JMenuItem cut,copy,paste,delete,find,findNext,replace;
     JMenuItem fontStyle;
-    JMenuItem statusBar;
+    JCheckBoxMenuItem statusBar;
     JMenuItem aboutNotePad;
 
 
@@ -49,7 +56,7 @@ public class StartFrame extends JFrame {
         fontStyle = new JMenuItem("Font");
 
         view = new JMenu("View");
-        statusBar = new JMenuItem("Status Bar");
+        statusBar = new JCheckBoxMenuItem("Status Bar");
 
         help = new JMenu("Help");
         aboutNotePad = new JMenuItem("About NotePad");
@@ -57,9 +64,17 @@ public class StartFrame extends JFrame {
         setTitle(fileName + " - NotePade");
         setSize(600, 500);
         setLocation(250, 30);
-//        panel.setLayout(null);
+
+        panel.setLayout(new BorderLayout());
+
+        statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        statusPanel.setPreferredSize(new Dimension(panel.getWidth(), 22));
+        JLabel statusLabel = new JLabel("Row " + row + " , Col " + col);
+//        statusPanel.add(statusLabel);
+        panel.add(statusPanel, BorderLayout.SOUTH);
+        panel.add(scrollPane);
+
         getContentPane().add(panel);
-        getContentPane().add(scrollPane);
 
         menuBar.add(file);
         file.add(newFile);
@@ -87,6 +102,8 @@ public class StartFrame extends JFrame {
         help.add(aboutNotePad);
 
         this.setJMenuBar(menuBar);
+
+
 
         setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
 //        setResizable(false);
@@ -192,13 +209,10 @@ public class StartFrame extends JFrame {
         statusBar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                StatusBar statusBar = new StatusBar();
-
-
-
-
-
-
+                statusPanel.add(statusLabel);
+                panel.add(statusPanel);
+                statusPanel.setVisible(true);
+                System.out.println("dffd");
             }
         });
 

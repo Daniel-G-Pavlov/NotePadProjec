@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class ExitFrame extends JFrame {
 
+    JFrame frame = new JFrame();
     private JPanel panel = new JPanel();
     private JLabel label = new JLabel();
     private JTextField textField = new JTextField();
@@ -24,9 +25,10 @@ public class ExitFrame extends JFrame {
 
         textField.setText("Do you want to save changes to Untitled?");
         textField.setEditable(false);
-//        textField.setFont(NORMAL, Font PLAIN, 20);
+        Font font = new Font("Arial", Font.BOLD, 25);
+        textField.setFont(font);
         textField.setVisible(true);
-        textField.setBounds(30, 20, 300, 30);
+        textField.setBounds(30, 20, 500, 30);
         panel.add(textField);
 
         buttonSave.setText("Save File and Exit");
@@ -62,10 +64,11 @@ public class ExitFrame extends JFrame {
         buttonCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
                 System.out.println("gh");
             }
         });
+
 
 
         setDefaultCloseOperation(ExitFrame.DISPOSE_ON_CLOSE);
