@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e283dbd-8428-4190-9d54-e58342399e7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/FindFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/FindFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,15 +21,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -89,11 +81,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="653">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="653">
+              <caret line="69" column="1" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="653">
+              <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="653">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,10 +151,13 @@
         <option value="$PROJECT_DIR$/src/NotePadeFrame/FindFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="919" />
     <option name="y" value="240" />
     <option name="width" value="655" />
@@ -137,6 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,13 +192,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554998741458" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554999340328" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -194,12 +225,12 @@
       <option name="presentableId" value="Default" />
       <updated>1553766254187</updated>
       <workItem from="1554997382894" duration="376000" />
-      <workItem from="1554998545027" duration="236000" />
+      <workItem from="1554998545027" duration="726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376000" />
+    <option name="totallyTimeSpent" value="1086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
@@ -335,7 +366,37 @@
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="653">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="69" column="1" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
