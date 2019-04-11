@@ -9,12 +9,18 @@ public class StartFrame extends JFrame {
 
     public JPanel panel = new JPanel();
     public JLabel[][] indexRowCol;
+    public JTextArea textArea = new JTextArea();
+    public JScrollPane scrollPane = new JScrollPane(textArea);
+    private JLabel label = new JLabel();
+    private JButton button = new JButton();
+    private JButton buttonNewFile;
+    String fileName = "Untitled";
 
     JMenuBar menuBar;
     JMenu file,edit,format,view,help;
     JMenuItem newFile,open,save,saveAs, exit;
     JMenuItem cut,copy,paste,delete,find,findNext,replace;
-    JMenuItem font;
+    JMenuItem fontStyle;
     JMenuItem statusBar;
     JMenuItem aboutNotePad;
 
@@ -40,7 +46,7 @@ public class StartFrame extends JFrame {
         replace = new JMenuItem("Replace...");
 
         format = new JMenu("Formate");
-        font = new JMenuItem("Font");
+        fontStyle = new JMenuItem("Font");
 
         view = new JMenu("View");
         statusBar = new JMenuItem("Status Bar");
@@ -48,11 +54,12 @@ public class StartFrame extends JFrame {
         help = new JMenu("Help");
         aboutNotePad = new JMenuItem("About NotePad");
 
-        setTitle("NotePade");
-        setSize(500, 400);
+        setTitle(fileName + " - NotePade");
+        setSize(600, 500);
         setLocation(250, 30);
-        panel.setLayout(null);
+//        panel.setLayout(null);
         getContentPane().add(panel);
+        getContentPane().add(scrollPane);
 
         menuBar.add(file);
         file.add(newFile);
@@ -71,7 +78,7 @@ public class StartFrame extends JFrame {
         edit.add(replace);
 
         menuBar.add(format);
-        format.add(font);
+        format.add(fontStyle);
 
         menuBar.add(view);
         view.add(statusBar);
@@ -82,28 +89,32 @@ public class StartFrame extends JFrame {
         this.setJMenuBar(menuBar);
 
         setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+//        setResizable(false);
         setVisible(true);
         repaint();
+
+
+
+
 
         newFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+                NewFileFrame newFileFrame = new NewFileFrame();
             }
         });
 
         open.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+                OpenFrame openFrame = new OpenFrame();
             }
         });
 
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+                SaveFrame saveFrame = new SaveFrame();
             }
         });
 
@@ -117,8 +128,8 @@ public class StartFrame extends JFrame {
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
-                System.out.println("Exit");
+                ExitFrame exitFrame = new ExitFrame();
+
             }
         });
 
@@ -171,7 +182,7 @@ public class StartFrame extends JFrame {
             }
         });
 
-        font.addActionListener(new ActionListener() {
+        fontStyle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 FontFrame fontFrame = new FontFrame();
@@ -181,6 +192,12 @@ public class StartFrame extends JFrame {
         statusBar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
+                StatusBar statusBar = new StatusBar();
+
+
+
+
+
 
             }
         });
