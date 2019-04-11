@@ -1,7 +1,6 @@
 package NotePadeFrame;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,6 +21,7 @@ public class FindFrame extends JFrame {
     public FindFrame() {
 
         setTitle("Find");
+//        setPreferredSize(new Dimension(450,150));
         setSize(450, 150);
         setLocation(350, 80);
         panel.setLayout(null);
@@ -70,7 +70,7 @@ public class FindFrame extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                System.exit(FindFrame.DO_NOTHING_ON_CLOSE);
+
             }
         });
 
