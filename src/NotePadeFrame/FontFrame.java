@@ -2,8 +2,7 @@ package NotePadeFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 
 public class FontFrame extends JFrame {
 
@@ -75,13 +74,30 @@ public class FontFrame extends JFrame {
         ScrollPaneFont(50, 70, 200, 148);
         ScrollPaneFont(320, 70, 63, 148);
 
-        ButtonOK("OK", 140);
-        ButtonOK("Cancel", 300);
+        JButton okButton = new JButton();
+        okButton.setText("OK");
+        okButton.setBounds(140, 350, 100, 30);
+        okButton.setVisible(true);
+        panel.add(okButton);
+
+        JButton canselButton = new JButton();
+        canselButton.setText("Cansel");
+        canselButton.setBounds(285, 350, 100, 30);
+        canselButton.setVisible(true);
+        panel.add(canselButton);
 
         setDefaultCloseOperation(FontFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setVisible(true);
         repaint();
+
+        canselButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelClicked();
+            }
+        });
+
     }
 
     private void ScrollPaneFont( int i, int y, int i2, int y2 ) {
@@ -92,19 +108,18 @@ public class FontFrame extends JFrame {
         panel.add(scrollPaneFont);
     }
 
-    private void ButtonOK( String ok, int i ) {
-        JButton buttonOK = new JButton();
-        buttonOK.setText(ok);
-        buttonOK.setBounds(i, 350, 100, 30);
-        buttonOK.setVisible(true);
-        panel.add(buttonOK);
-    }
-
     private void LableFont( int i, int y, int i2, int y2, String font ) {
         JLabel labelFont = new JLabel();
         labelFont.setBounds(i, y, i2, y2);
         labelFont.setText(font);
         labelFont.setVisible(true);
         panel.add(labelFont);
+    }
+
+
+
+
+    private void cancelClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 }

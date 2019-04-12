@@ -69,8 +69,6 @@ public class ExitFrame extends JFrame {
             }
         });
 
-
-
         setDefaultCloseOperation(ExitFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setVisible(true);
