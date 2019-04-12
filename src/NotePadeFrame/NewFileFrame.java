@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class NewFileFrame extends JFrame implements ActionListener {
@@ -35,21 +36,37 @@ public class NewFileFrame extends JFrame implements ActionListener {
         fileChooser.setAcceptAllFileFilterUsed(true);
         panel.add(fileChooser);
 
-
         setDefaultCloseOperation(NewFileFrame.DISPOSE_ON_CLOSE);
-        //        setResizable(false);
 
         textField.setEditable(false);
         textField.setText("Do you want to save changes to " + fileName + "?" );
-        textField.setBounds(20,20,250,20);
+        Font font = new Font("Arial", Font.BOLD, 15);
+        textField.setFont(font);
+        textField.setBounds(20,20,300,20);
         textField.setVisible(true);
         setResizable(false);
         panel.add(textField);
         panel.setPreferredSize(new Dimension(360, 100));
 
         JButton buttonSave = ButtonSave("Save", 20,80);
-//        JButton buttonDontSave = ButtonSave("Don't Save", 120,120);
-//        JButton buttonCansel = ButtonSave("Cansel", 260,80);
+        JButton buttonDontSave = ButtonSave("Don't Save", 120,120);
+        JButton buttonCansel = ButtonSave("Cansel", 260,80);
+
+        buttonDontSave.addActionListener(new ActionListener() {
+            @Override
+            public boolean actionPerformed( ActionEvent e ) {
+                dontSaveCommand = false;
+                cancelClicked();
+                return dontSaveCommand;
+            }
+        });
+
+        buttonCansel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                cancelClicked();
+            }
+        });
 
         buttonSave.addActionListener(this);
 
@@ -57,7 +74,6 @@ public class NewFileFrame extends JFrame implements ActionListener {
         setVisible(true);
         repaint();
     }
-
 
     @Override
     public void actionPerformed( ActionEvent e ) {
@@ -79,11 +95,16 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
     private JButton ButtonSave( String save, int i ,int i2) {
         buttonSave.setText(save);
-//        JButton buttonSave = new JButton(save);
+        JButton buttonSave = new JButton(save);
         buttonSave.setBounds(i, 60, i2, 30);
         buttonSave.setVisible(true);
         panel.add(buttonSave);
         return buttonSave;
     }
+
+    private void cancelClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+
 }
 

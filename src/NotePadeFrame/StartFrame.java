@@ -7,6 +7,9 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class StartFrame extends JFrame {
 
@@ -21,7 +24,8 @@ public class StartFrame extends JFrame {
     private JLabel label = new JLabel();
     private JButton button = new JButton();
     private JButton buttonNewFile;
-    String fileName = "Untitled";
+    public String fileName = "Untitled";
+    public boolean dontSaveCommand = true;
 
     JMenuBar menuBar;
     JMenu file,edit,format,view,help;
@@ -31,6 +35,13 @@ public class StartFrame extends JFrame {
     JCheckBoxMenuItem statusBar;
     JMenuItem aboutNotePad;
 
+    public boolean isDontSaveCommand() {
+        return dontSaveCommand;
+    }
+
+    public void setDontSaveCommand(boolean dontSaveCommand) {
+        this.dontSaveCommand = dontSaveCommand;
+    }
 
     public StartFrame() {
 
@@ -103,10 +114,10 @@ public class StartFrame extends JFrame {
 
         this.setJMenuBar(menuBar);
 
+//        CreationTextFile creationTextFile = new CreationTextFile();
 
 
         setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
-//        setResizable(false);
         setVisible(true);
         repaint();
 
@@ -118,6 +129,9 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 NewFileFrame newFileFrame = new NewFileFrame();
+                if (dontSaveCommand == true){
+                    panel.setLayout(new BorderLayout());
+                }else return;
             }
         });
 
