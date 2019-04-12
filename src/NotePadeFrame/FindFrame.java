@@ -3,6 +3,7 @@ package NotePadeFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class FindFrame extends JFrame {
 
@@ -70,7 +71,7 @@ public class FindFrame extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+                cancelClicked();
             }
         });
 
@@ -80,5 +81,9 @@ public class FindFrame extends JFrame {
         setVisible(true);
         repaint();
 
+    }
+
+    private void cancelClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 }

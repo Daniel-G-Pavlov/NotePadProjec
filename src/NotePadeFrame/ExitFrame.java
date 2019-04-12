@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class ExitFrame extends JFrame {
 
@@ -64,8 +65,7 @@ public class ExitFrame extends JFrame {
         buttonCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-                System.out.println("gh");
+                cancelClicked();
             }
         });
 
@@ -76,5 +76,8 @@ public class ExitFrame extends JFrame {
         setVisible(true);
         repaint();
 
+    }
+    private void cancelClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 }
