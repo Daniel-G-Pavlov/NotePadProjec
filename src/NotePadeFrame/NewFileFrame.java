@@ -20,7 +20,6 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JMenuBar menuBar = new JMenuBar();
     private JTextArea textArea = new JTextArea();
     private JTextField textField = new JTextField();
-    //    private JButton buttonSave;
     public String fileName = "Untitled";
 
     public NewFileFrame() {
@@ -48,16 +47,32 @@ public class NewFileFrame extends JFrame implements ActionListener {
         panel.add(textField);
         panel.setPreferredSize(new Dimension(360, 100));
 
-        JButton buttonSave = ButtonSave("Save", 20,80);
-        JButton buttonDontSave = ButtonSave("Don't Save", 120,120);
-        JButton buttonCansel = ButtonSave("Cansel", 260,80);
+        JButton buttonSave = new JButton();
+        buttonSave.setText("Save");
+        buttonSave.setBounds(20,60, 80, 30);
+        buttonSave.setVisible(true);
+        panel.add(buttonSave);
+
+        JButton buttonDontSave = new JButton();
+        buttonDontSave.setText("Don't Save");
+        buttonDontSave.setBounds(120, 60, 120, 30);
+        buttonDontSave.setVisible(true);
+        panel.add(buttonDontSave);
+
+        JButton buttonCansel = new JButton();
+        buttonCansel.setText("Cansel");
+        buttonCansel.setBounds(260,60, 80, 30);
+        buttonCansel.setVisible(true);
+        panel.add(buttonCansel);
 
         buttonDontSave.addActionListener(new ActionListener() {
             @Override
-            public boolean actionPerformed( ActionEvent e ) {
-                dontSaveCommand = false;
+            public void actionPerformed(ActionEvent e ) {
+
+                FrictionOfText frictionOfText = new FrictionOfText();
+
+                System.out.println("Печат не записвай");
                 cancelClicked();
-                return dontSaveCommand;
             }
         });
 
@@ -65,6 +80,13 @@ public class NewFileFrame extends JFrame implements ActionListener {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 cancelClicked();
+            }
+        });
+
+        buttonSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+
             }
         });
 
@@ -91,16 +113,10 @@ public class NewFileFrame extends JFrame implements ActionListener {
                 textArea.setText("unknown...");
             }
         }
+
+
     }
 
-    private JButton ButtonSave( String save, int i ,int i2) {
-        buttonSave.setText(save);
-        JButton buttonSave = new JButton(save);
-        buttonSave.setBounds(i, 60, i2, 30);
-        buttonSave.setVisible(true);
-        panel.add(buttonSave);
-        return buttonSave;
-    }
 
     private void cancelClicked() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));

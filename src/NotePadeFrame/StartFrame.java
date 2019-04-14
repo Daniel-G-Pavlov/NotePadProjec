@@ -13,34 +13,109 @@ import java.util.Scanner;
 
 public class StartFrame extends JFrame {
 
-    JFrame frame = new JFrame();
-    public JPanel panel = new JPanel();
-    public JPanel statusPanel = new JPanel();
-    public String status = " kl ";
-    public int col = 0;
-    public int row = 0;
-    public JTextArea textArea = new JTextArea();
-    public JScrollPane scrollPane = new JScrollPane(textArea);
+    private Object Font;
+    private JFrame frame = new JFrame();
+    private JPanel panel = new JPanel();
+    private JPanel statusPanel = new JPanel();
+    private String status = " kl ";
+    private int col = 0;
+    private int row = 0;
+    private JTextArea textArea = new JTextArea();
+    private JScrollPane scrollPane = new JScrollPane(textArea);
     private JLabel label = new JLabel();
     private JButton button = new JButton();
     private JButton buttonNewFile;
     public String fileName = "Untitled";
-    public boolean dontSaveCommand = true;
+    private boolean dontSaveCommand = true;
+    public String fontName;
+    public int fontSize;
 
-    JMenuBar menuBar;
-    JMenu file,edit,format,view,help;
-    JMenuItem newFile,open,save,saveAs, exit;
-    JMenuItem cut,copy,paste,delete,find,findNext,replace;
-    JMenuItem fontStyle;
-    JCheckBoxMenuItem statusBar;
-    JMenuItem aboutNotePad;
+//    public Font font = new Font("Courier", Font.BOLD,22);
+    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
-    public boolean isDontSaveCommand() {
+    private JMenuBar menuBar;
+    private JMenu file,edit,format,view,help;
+    private JMenuItem newFile,open,save,saveAs, exit;
+    private JMenuItem cut,copy,paste,delete,find,findNext,replace;
+    private JMenuItem fontStyle;
+    private JCheckBoxMenuItem statusBar;
+    private JMenuItem aboutNotePad;
+
+
+    public StartFrame( String fontName, int fontSize ) throws HeadlessException {
+        this.fontName = fontName;
+        this.fontSize = fontSize;
+    }
+
+    public String getFontName() {
+        return fontName;
+    }
+
+    public void setFontName( String fontName ) {
+        this.fontName = fontName;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize( int fontSize ) {
+        this.fontSize = fontSize;
+    }
+//    public StartFrame( JTextArea textArea, String fileName,
+//                       Font font, JMenuItem fontStyle ) throws HeadlessException {
+//        this.textArea = textArea;
+//        this.fileName = fileName;
+//        this.font = font;
+//        this.fontStyle = fontStyle;
+//        Font = this.font;
+//    }
+
+    public StartFrame( Font font ) throws HeadlessException {
+        this.font = font;
+        Font = this.font;
+    }
+
+    @Override
+    public Font getFont() {
+        return font;
+    }
+
+    @Override
+    public void setFont( Font font ) {
+        this.font = font;
+    }
+
+    private boolean isDontSaveCommand() {
         return dontSaveCommand;
     }
 
-    public void setDontSaveCommand(boolean dontSaveCommand) {
+    private void setDontSaveCommand(boolean dontSaveCommand) {
         this.dontSaveCommand = dontSaveCommand;
+    }
+
+    private JTextArea getTextArea() {
+        return textArea;
+    }
+
+    private void setTextArea( JTextArea textArea ) {
+        this.textArea = textArea;
+    }
+
+    private JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    private void setScrollPane( JScrollPane scrollPane ) {
+        this.scrollPane = scrollPane;
+    }
+
+    private JPanel getPanel() {
+        return panel;
+    }
+
+    private void setPanel( JPanel panel ) {
+        this.panel = panel;
     }
 
     public StartFrame() {
@@ -83,6 +158,7 @@ public class StartFrame extends JFrame {
         JLabel statusLabel = new JLabel("Row " + row + " , Col " + col);
 //        statusPanel.add(statusLabel);
         panel.add(statusPanel, BorderLayout.SOUTH);
+//        textArea.setFont(font);
         panel.add(scrollPane);
 
         getContentPane().add(panel);
@@ -118,6 +194,9 @@ public class StartFrame extends JFrame {
 
 
         setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
+
+
+
         setVisible(true);
         repaint();
 
@@ -129,9 +208,7 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 NewFileFrame newFileFrame = new NewFileFrame();
-                if (dontSaveCommand == true){
-                    panel.setLayout(new BorderLayout());
-                }else return;
+                System.out.println("textarae");
             }
         });
 
@@ -216,6 +293,7 @@ public class StartFrame extends JFrame {
         fontStyle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
+//                FontFrame fontFrame = new FontFrame(font);
                 FontFrame fontFrame = new FontFrame();
             }
         });

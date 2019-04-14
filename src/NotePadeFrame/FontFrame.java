@@ -4,15 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class FontFrame extends JFrame {
+public class FontFrame extends StartFrame{
 
+    private JPanel panelFrame = new JPanel();
+    private JLabel labelFontFrameSample = new JLabel();
 
-    private JPanel panel = new JPanel();
-    public JLabel labelFontSample = new JLabel();
-    public String fontName;
-    public int fontSize = 12;
+        public  FontFrame() {
 
-    public FontFrame() {
 
         GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String[] fontFamilyNames = graphicsEnvironment.getAvailableFontFamilyNames();
@@ -20,7 +18,7 @@ public class FontFrame extends JFrame {
         comboBox.setVisible(true);
         comboBox.setBounds(50, 50, 200, 20);
         comboBox.setSelectedItem(0);
-        panel.add(comboBox);
+        panelFrame.add(comboBox);
 
         GraphicsEnvironment graphicsEnvironmentSize = GraphicsEnvironment.getLocalGraphicsEnvironment();
         Integer[] ListFontSize = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
@@ -28,14 +26,14 @@ public class FontFrame extends JFrame {
         comboBoxSize.setVisible(true);
         comboBoxSize.setBounds(320, 50, 60, 20);
         comboBoxSize.setSelectedItem(0);
-        panel.add(comboBoxSize);
+        panelFrame.add(comboBoxSize);
         comboBoxSize.addItemListener(new ItemListener() {
 
             @Override
             public void itemStateChanged( ItemEvent e ) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     fontSize = comboBoxSize.getSelectedItem().hashCode();
-                    labelFontSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
+                    labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
 
                 }
             }
@@ -48,24 +46,24 @@ public class FontFrame extends JFrame {
             public void itemStateChanged( ItemEvent e ) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     fontName = comboBox.getSelectedItem().toString();
-                    labelFontSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
+                    labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
 
                 }
             }
         });
         pack();
 
-        labelFontSample.setBounds(50, 240, 360, 72);
-        labelFontSample.setText("AaBbCcFf");
-        labelFontSample.setFont(new Font(fontName, Font.PLAIN, 48));
-        labelFontSample.setVisible(true);
-        panel.add(labelFontSample);
+        labelFontFrameSample.setBounds(50, 240, 360, 72);
+        labelFontFrameSample.setText("AaBbCcFf");
+        labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, 48));
+        labelFontFrameSample.setVisible(true);
+        panelFrame.add(labelFontFrameSample);
 
         setTitle("Font");
         setSize(450, 420);
         setLocation(350, 80);
-        panel.setLayout(null);
-        getContentPane().add(panel);
+        panelFrame.setLayout(null);
+        getContentPane().add(panelFrame);
 
         LableFont(50, 30, 60, 10, "Font");
         LableFont(320, 30, 60, 10, "Size");
@@ -78,18 +76,21 @@ public class FontFrame extends JFrame {
         okButton.setText("OK");
         okButton.setBounds(140, 350, 100, 30);
         okButton.setVisible(true);
-        panel.add(okButton);
+        panelFrame.add(okButton);
 
         JButton canselButton = new JButton();
         canselButton.setText("Cansel");
         canselButton.setBounds(285, 350, 100, 30);
         canselButton.setVisible(true);
-        panel.add(canselButton);
+        panelFrame.add(canselButton);
 
         setDefaultCloseOperation(FontFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setVisible(true);
         repaint();
+
+
+
 
         canselButton.addActionListener(new ActionListener() {
             @Override
@@ -98,6 +99,15 @@ public class FontFrame extends JFrame {
             }
         });
 
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelClicked();
+            }
+        });
+
+//        return (Font) font;
+
     }
 
     private void ScrollPaneFont( int i, int y, int i2, int y2 ) {
@@ -105,7 +115,7 @@ public class FontFrame extends JFrame {
         scrollPaneFont.setBounds(i, y, i2, y2);
         scrollPaneFont.setVisible(true);
         scrollPaneFont.createVerticalScrollBar();
-        panel.add(scrollPaneFont);
+        panelFrame.add(scrollPaneFont);
     }
 
     private void LableFont( int i, int y, int i2, int y2, String font ) {
@@ -113,7 +123,7 @@ public class FontFrame extends JFrame {
         labelFont.setBounds(i, y, i2, y2);
         labelFont.setText(font);
         labelFont.setVisible(true);
-        panel.add(labelFont);
+        panelFrame.add(labelFont);
     }
 
 
