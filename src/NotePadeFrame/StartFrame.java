@@ -2,123 +2,70 @@ package NotePadeFrame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.awt.event.WindowEvent;
 
 public class StartFrame extends JFrame {
 
-    private Object Font;
-    private JFrame frame = new JFrame();
-    private JPanel panel = new JPanel();
-    private JPanel statusPanel = new JPanel();
-    private String status = " kl ";
+    protected JFrame frame = new JFrame();
+    protected JPanel panel = new JPanel();
+    protected JPanel statusPanel = new JPanel();
+    protected String status = " kl ";
     private int col = 0;
     private int row = 0;
-    private JTextArea textArea = new JTextArea();
-    private JScrollPane scrollPane = new JScrollPane(textArea);
-    private JLabel label = new JLabel();
-    private JButton button = new JButton();
-    private JButton buttonNewFile;
+    protected JTextArea textArea = new JTextArea();
+    protected JScrollPane scrollPane = new JScrollPane(textArea);
+    protected JLabel label = new JLabel();
+    protected JButton button = new JButton();
+    public boolean dontSaveCommand = true;
     public String fileName = "Untitled";
-    private boolean dontSaveCommand = true;
     public String fontName;
     public int fontSize;
-
-//    public Font font = new Font("Courier", Font.BOLD,22);
-    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
-
-    private JMenuBar menuBar;
-    private JMenu file,edit,format,view,help;
-    private JMenuItem newFile,open,save,saveAs, exit;
-    private JMenuItem cut,copy,paste,delete,find,findNext,replace;
-    private JMenuItem fontStyle;
-    private JCheckBoxMenuItem statusBar;
-    private JMenuItem aboutNotePad;
+    public String fontNameModif = "Arial";
+    public int fontSizeModif = 15;
+//    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
 
-    public StartFrame( String fontName, int fontSize ) throws HeadlessException {
-        this.fontName = fontName;
-        this.fontSize = fontSize;
-    }
+    protected JMenuBar menuBar;
+    protected JMenu file,edit,format,view,help;
+    protected JMenuItem newFile,open,save,saveAs, exit;
+    protected JMenuItem cut,copy,paste,delete,find,findNext,replace;
+    protected JMenuItem fontStyle;
+    protected JCheckBoxMenuItem statusBar;
+    protected JMenuItem aboutNotePad;
 
-    public String getFontName() {
-        return fontName;
-    }
-
-    public void setFontName( String fontName ) {
-        this.fontName = fontName;
-    }
-
-    public int getFontSize() {
-        return fontSize;
-    }
-
-    public void setFontSize( int fontSize ) {
-        this.fontSize = fontSize;
-    }
-//    public StartFrame( JTextArea textArea, String fileName,
-//                       Font font, JMenuItem fontStyle ) throws HeadlessException {
-//        this.textArea = textArea;
-//        this.fileName = fileName;
-//        this.font = font;
-//        this.fontStyle = fontStyle;
-//        Font = this.font;
-//    }
-
-    public StartFrame( Font font ) throws HeadlessException {
-        this.font = font;
-        Font = this.font;
-    }
-
-    @Override
-    public Font getFont() {
-        return font;
-    }
-
-    @Override
-    public void setFont( Font font ) {
-        this.font = font;
-    }
-
-    private boolean isDontSaveCommand() {
-        return dontSaveCommand;
-    }
-
-    private void setDontSaveCommand(boolean dontSaveCommand) {
-        this.dontSaveCommand = dontSaveCommand;
-    }
-
-    private JTextArea getTextArea() {
-        return textArea;
-    }
-
-    private void setTextArea( JTextArea textArea ) {
+    public StartFrame( JTextArea textArea, JScrollPane scrollPane ) throws HeadlessException {
         this.textArea = textArea;
-    }
-
-    private JScrollPane getScrollPane() {
-        return scrollPane;
-    }
-
-    private void setScrollPane( JScrollPane scrollPane ) {
         this.scrollPane = scrollPane;
     }
 
-    private JPanel getPanel() {
-        return panel;
+    public JTextArea getTextArea() {
+        return textArea;
     }
 
-    private void setPanel( JPanel panel ) {
-        this.panel = panel;
+    public void setTextArea( JTextArea textArea ) {
+        this.textArea = textArea;
     }
 
-    public StartFrame() {
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public void setScrollPane( JScrollPane scrollPane ) {
+        this.scrollPane = scrollPane;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName( String fileName ) {
+        this.fileName = fileName;
+    }
+
+    public  StartFrame() {
 
         menuBar = new JMenuBar();
 
@@ -158,10 +105,12 @@ public class StartFrame extends JFrame {
         JLabel statusLabel = new JLabel("Row " + row + " , Col " + col);
 //        statusPanel.add(statusLabel);
         panel.add(statusPanel, BorderLayout.SOUTH);
-//        textArea.setFont(font);
-        panel.add(scrollPane);
+
+        TextArraiPane();
 
         getContentPane().add(panel);
+
+        FontChois();
 
         menuBar.add(file);
         file.add(newFile);
@@ -190,12 +139,7 @@ public class StartFrame extends JFrame {
 
         this.setJMenuBar(menuBar);
 
-//        CreationTextFile creationTextFile = new CreationTextFile();
-
-
         setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
-
-
 
         setVisible(true);
         repaint();
@@ -207,7 +151,7 @@ public class StartFrame extends JFrame {
         newFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                NewFileFrame newFileFrame = new NewFileFrame();
+                NewFileFrame newFileFrame = new NewFileFrame(fileName);
                 System.out.println("textarae");
             }
         });
@@ -291,10 +235,22 @@ public class StartFrame extends JFrame {
         });
 
         fontStyle.addActionListener(new ActionListener() {
+
+//            public  String fontNameModif;
+//            public  int fontSizeModif;
             @Override
             public void actionPerformed( ActionEvent e ) {
-//                FontFrame fontFrame = new FontFrame(font);
                 FontFrame fontFrame = new FontFrame();
+
+
+                fontNameModif = fontFrame.setFontName();
+                fontSizeModif = fontFrame.setFontSize();
+
+                Font font = new Font(fontNameModif,java.awt.Font.BOLD,fontSizeModif);
+                TextArraiPane();
+
+                System.out.println(font);
+
             }
         });
 
@@ -314,6 +270,22 @@ public class StartFrame extends JFrame {
                 AboutFrame aboutFrame = new AboutFrame();
             }
         });
+
     }
+
+    public  void TextArraiPane() {
+        fontName =  fontNameModif;
+        fontSize =  fontSizeModif;
+        textArea.setFont(new Font(fontName, Font.BOLD,fontSize));
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane);
+        getContentPane().add(panel);
+    }
+
+    private void FontChois () {
+
+
+    }
+
 }
 

@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.File;
 
-public class NewFileFrame extends JFrame implements ActionListener {
 
+public class NewFileFrame extends JFrame implements ActionListener {
 
 
     private JPanel panel = new JPanel();
@@ -22,8 +22,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JTextField textField = new JTextField();
     public String fileName = "Untitled";
 
-    public NewFileFrame() {
-
+    public NewFileFrame( String fileName ) {
 
 
         setTitle("Notpad");
@@ -38,10 +37,10 @@ public class NewFileFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(NewFileFrame.DISPOSE_ON_CLOSE);
 
         textField.setEditable(false);
-        textField.setText("Do you want to save changes to " + fileName + "?" );
+        textField.setText("Do you want to save changes to " + this.fileName + "?");
         Font font = new Font("Arial", Font.BOLD, 15);
         textField.setFont(font);
-        textField.setBounds(20,20,300,20);
+        textField.setBounds(20, 20, 300, 20);
         textField.setVisible(true);
         setResizable(false);
         panel.add(textField);
@@ -49,7 +48,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
         JButton buttonSave = new JButton();
         buttonSave.setText("Save");
-        buttonSave.setBounds(20,60, 80, 30);
+        buttonSave.setBounds(20, 60, 80, 30);
         buttonSave.setVisible(true);
         panel.add(buttonSave);
 
@@ -61,15 +60,13 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
         JButton buttonCansel = new JButton();
         buttonCansel.setText("Cansel");
-        buttonCansel.setBounds(260,60, 80, 30);
+        buttonCansel.setBounds(260, 60, 80, 30);
         buttonCansel.setVisible(true);
         panel.add(buttonCansel);
 
         buttonDontSave.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e ) {
-
-                FrictionOfText frictionOfText = new FrictionOfText();
+            public void actionPerformed( ActionEvent e ) {
 
                 System.out.println("Печат не записвай");
                 cancelClicked();
@@ -86,15 +83,21 @@ public class NewFileFrame extends JFrame implements ActionListener {
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+//                CreationTextFile creationTextFile = new CreationTextFile();
+//
+//                        (NewFileFrame.this.fileName)
+//                        ;
             }
         });
 
-        buttonSave.addActionListener(this);
+        buttonSave.addActionListener( this);
 
         pack();
         setVisible(true);
         repaint();
+    }
+
+    public NewFileFrame() {
     }
 
     @Override
@@ -123,4 +126,6 @@ public class NewFileFrame extends JFrame implements ActionListener {
     }
 
 }
+
+
 
