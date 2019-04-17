@@ -83,22 +83,17 @@ public class NewFileFrame extends JFrame implements ActionListener {
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-//                CreationTextFile creationTextFile = new CreationTextFile();
-//
-//                        (NewFileFrame.this.fileName)
-//                        ;
+
             }
         });
 
-        buttonSave.addActionListener( this);
+//        buttonSave.addActionListener( this);
 
         pack();
         setVisible(true);
         repaint();
     }
 
-    public NewFileFrame() {
-    }
 
     @Override
     public void actionPerformed( ActionEvent e ) {

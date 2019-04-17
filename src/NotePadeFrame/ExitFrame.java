@@ -16,7 +16,7 @@ public class ExitFrame extends JFrame {
     private JButton buttonExit = new JButton();
     private JButton buttonCancel = new JButton();
 
-    public ExitFrame() {
+    public ExitFrame(String fileName) {
 
         setTitle("EXIT");
         setSize(560, 200);

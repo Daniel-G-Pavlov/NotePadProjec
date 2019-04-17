@@ -1,10 +1,15 @@
 package NotePadeFrame;
 
 import javax.swing.*;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
+import static javax.swing.JFileChooser.APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY;
 
 public class OpenFrame extends JFrame implements ActionListener {
     private JPanel panel = new JPanel();
@@ -15,56 +20,25 @@ public class OpenFrame extends JFrame implements ActionListener {
     private JTextArea textArea = new JTextArea();
     private JButton buttonOpenFile;
 
+
     public OpenFrame() {
-        setTitle("Open");
-        setSize(600, 600);
-        setLocation(350, 80);
-        panel.setLayout(null);
-        getContentPane().add(panel);
 
-        fileChooser.setPreferredSize(new Dimension(500, 600));
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        jfc.setDialogTitle("Open");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
+        jfc.addChoosableFileFilter(filter);
 
-
-        panel.add(fileChooser);
-
-
-        setDefaultCloseOperation(OpenFrame.DISPOSE_ON_CLOSE);
-//        setResizable(false);
-        prepareUI();
-        pack();
-        setVisible(true);
-        repaint();
-
-
+        int returnValue = jfc.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            if (jfc.getSelectedFile().isDirectory()) {
+                System.out.println("You selected the directory: " + jfc.getSelectedFile());
+            }
+            System.out.println(jfc.getSelectedFile().getPath());
+        }
     }
 
     @Override
     public void actionPerformed( ActionEvent e ) {
-        if (e.getSource() == buttonOpenFile) {
-            final JFileChooser jFileChooser = new JFileChooser();
-            int returnVal = jFileChooser.showOpenDialog(OpenFrame.this);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = jFileChooser.getSelectedFile();
-                textArea.setText("Selected file: " + file.getName());
-            } else if (returnVal == JFileChooser.CANCEL_OPTION) {
-                textArea.setText("Cancelled");
-            } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                textArea.setText("Error!");
-            } else {
-                textArea.setText("unknown...");
-            }
-        }
-    }
 
-    private void prepareUI() {
-        textArea.setEditable(false);
-        JScrollPane panel = new JScrollPane(textArea);
-        panel.setPreferredSize(new Dimension(300, 100));
-
-        buttonOpenFile = new JButton("Open File");
-        buttonOpenFile.addActionListener(this);
-
-        getContentPane().add(panel, BorderLayout.CENTER);
-        getContentPane().add(buttonOpenFile, BorderLayout.PAGE_END);
     }
 }

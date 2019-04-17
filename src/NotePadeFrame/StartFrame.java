@@ -166,21 +166,21 @@ public class StartFrame extends JFrame {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                SaveFrame saveFrame = new SaveFrame();
+                SaveFrame saveFrame = new SaveFrame(fileName);
             }
         });
 
         saveAs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                SaveAsFrame saveAsFrame = new SaveAsFrame();
+                SaveAsFrame saveAsFrame = new SaveAsFrame(fileName);
             }
         });
 
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                ExitFrame exitFrame = new ExitFrame();
+                ExitFrame exitFrame = new ExitFrame(fileName);
 
             }
         });
@@ -276,8 +276,10 @@ public class StartFrame extends JFrame {
     public  void TextArraiPane() {
         fontName =  fontNameModif;
         fontSize =  fontSizeModif;
+        textArea.setEditable(true);
         textArea.setFont(new Font(fontName, Font.BOLD,fontSize));
         JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.isMaximumSizeSet();
         panel.add(scrollPane);
         getContentPane().add(panel);
     }
