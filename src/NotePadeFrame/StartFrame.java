@@ -2,23 +2,24 @@ package NotePadeFrame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.TextAction;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class StartFrame extends JFrame {
 
-    protected JFrame frame = new JFrame();
-    protected JPanel panel = new JPanel();
-    protected JPanel statusPanel = new JPanel();
-    protected String status = " kl ";
+    private JFrame frame = new JFrame();
+    private JPanel panel = new JPanel();
+    private JPanel statusPanel = new JPanel();
+    private String status = " kl ";
     private int col = 0;
     private int row = 0;
-    protected JTextArea textArea = new JTextArea();
-    protected JScrollPane scrollPane = new JScrollPane(textArea);
-    protected JLabel label = new JLabel();
-    protected JButton button = new JButton();
+    private JTextArea textArea = new JTextArea(10, 30);
+    private JScrollPane scrollPane = new JScrollPane(textArea);
+    private JLabel label = new JLabel();
+    private JButton button = new JButton();
     public boolean dontSaveCommand = true;
     public String fileName = "Untitled";
     public String fontName;
@@ -28,13 +29,21 @@ public class StartFrame extends JFrame {
 //    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
 
-    protected JMenuBar menuBar;
-    protected JMenu file,edit,format,view,help;
-    protected JMenuItem newFile,open,save,saveAs, exit;
-    protected JMenuItem cut,copy,paste,delete,find,findNext,replace;
-    protected JMenuItem fontStyle;
-    protected JCheckBoxMenuItem statusBar;
-    protected JMenuItem aboutNotePad;
+    private JMenuBar menuBar;
+    private JMenu file, edit, format, view, help;
+    private JMenuItem newFile, open, save, saveAs, exit;
+    private JMenuItem cut, copy, paste, delete, find, findNext, replace;
+    private JMenuItem fontStyle;
+    private JCheckBoxMenuItem statusBar;
+    private JMenuItem aboutNotePad;
+    private Action[] textActions = {new DefaultEditorKit.CutAction(),
+            new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
+    private JPopupMenu popup = new JPopupMenu();
+    private PopupListener popupListener = new PopupListener();
+
+    private static String CUT_ACTION_NAME = "cut";
+    private static String COPY_ACTION_NAME = "copy";
+    private static String PASTE_ACTION_NAME = "paste";
 
     public StartFrame( JTextArea textArea, JScrollPane scrollPane ) throws HeadlessException {
         this.textArea = textArea;
@@ -65,7 +74,7 @@ public class StartFrame extends JFrame {
         this.fileName = fileName;
     }
 
-    public  StartFrame() {
+    public StartFrame() {
 
         menuBar = new JMenuBar();
 
@@ -106,11 +115,14 @@ public class StartFrame extends JFrame {
 //        statusPanel.add(statusLabel);
         panel.add(statusPanel, BorderLayout.SOUTH);
 
-        TextArraiPane();
+        fontName = fontNameModif;
+        fontSize = fontSizeModif;
+        textArea.setEditable(true);
+        textArea.setFont(new Font(fontName, Font.BOLD, fontSize));
+        textArea.addMouseListener(popupListener);
+        JScrollPane scrollPane = new JScrollPane(textArea);
 
-        getContentPane().add(panel);
 
-        FontChois();
 
         menuBar.add(file);
         file.add(newFile);
@@ -137,15 +149,30 @@ public class StartFrame extends JFrame {
         menuBar.add(help);
         help.add(aboutNotePad);
 
+        for (Action textAction : textActions) {
+
+
+
+            popup.add(new JMenuItem(textAction));
+        }
+
+        scrollPane.isMaximumSizeSet();
+        panel.add(scrollPane);
+        getContentPane().add(panel);
+
+
+
         this.setJMenuBar(menuBar);
 
-        setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
+        panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        panel.setLayout(new BorderLayout(5, 5));
+        panel.add(scrollPane, BorderLayout.CENTER);
 
+        frame.setLocationByPlatform(true);
+
+        setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
         setVisible(true);
         repaint();
-
-
-
 
 
         newFile.addActionListener(new ActionListener() {
@@ -189,12 +216,20 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
 
+                CutFram cutFram = new CutFram("Cut");
+
+
+
+
+
             }
         });
 
         copy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
+                CopyFrame copyFrame = new CopyFrame();
+
 
             }
         });
@@ -236,7 +271,7 @@ public class StartFrame extends JFrame {
 
         fontStyle.addActionListener(new ActionListener() {
 
-//            public  String fontNameModif;
+            //            public  String fontNameModif;
 //            public  int fontSizeModif;
             @Override
             public void actionPerformed( ActionEvent e ) {
@@ -246,8 +281,7 @@ public class StartFrame extends JFrame {
                 fontNameModif = fontFrame.setFontName();
                 fontSizeModif = fontFrame.setFontSize();
 
-                Font font = new Font(fontNameModif,java.awt.Font.BOLD,fontSizeModif);
-                TextArraiPane();
+                Font font = new Font(fontNameModif, java.awt.Font.BOLD, fontSizeModif);
 
                 System.out.println(font);
 
@@ -273,21 +307,46 @@ public class StartFrame extends JFrame {
 
     }
 
-    public  void TextArraiPane() {
-        fontName =  fontNameModif;
-        fontSize =  fontSizeModif;
-        textArea.setEditable(true);
-        textArea.setFont(new Font(fontName, Font.BOLD,fontSize));
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.isMaximumSizeSet();
-        panel.add(scrollPane);
-        getContentPane().add(panel);
+
+    public JComponent getCutAction() {
+        return panel;
     }
 
-    private void FontChois () {
+    class PopupListener extends MouseAdapter {
+        public void mousePressed( MouseEvent e ) {
+            maybeShowPopup(e);
+        }
 
+        public void mouseReleased( MouseEvent e ) {
+            maybeShowPopup(e);
+        }
+
+        private void maybeShowPopup( MouseEvent e ) {
+            if (e.isPopupTrigger()) {
+                popup.show(e.getComponent(),
+                        e.getX(), e.getY());
+            }
+        }
+    }
+
+    public class CutFram extends TextAction {
+
+        public CutFram( String name ) {
+            super(name);
+        }
+
+        @Override
+        public void actionPerformed( ActionEvent e ) {
+            popup.add(new JMenuItem((Action) getCutAction()));
+            JTextComponent target = getTextComponent(e);
+            if (target != null) {
+                target.cut();
+            }
+            getCutAction();
+        }
 
     }
+
 
 }
 

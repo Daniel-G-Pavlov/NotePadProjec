@@ -9,8 +9,8 @@ public class FontFrame extends JFrame {
     protected JFrame fontFrame = new JFrame();
     protected JPanel fontPanel = new JPanel();
     protected JLabel labelFontFrameSample = new JLabel();
-    public static String fontName ;
-    public static int fontSize ;
+    public static String fontName ="Arial";
+    public static int fontSize =15;
     public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
     public FontFrame( String fontName, int fontSize, Font font ) throws HeadlessException {
