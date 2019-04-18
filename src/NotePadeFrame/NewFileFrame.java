@@ -69,7 +69,8 @@ public class NewFileFrame extends JFrame implements ActionListener {
             public void actionPerformed( ActionEvent e ) {
 
                 System.out.println("Печат не записвай");
-                cancelClicked();
+                CreationTextFile creationTextFile = new CreationTextFile(fileName);
+                dontSaveClicked();
             }
         });
 
@@ -84,6 +85,8 @@ public class NewFileFrame extends JFrame implements ActionListener {
             @Override
             public void actionPerformed( ActionEvent e ) {
 
+                CreationTextFile creationTextFile = new CreationTextFile(fileName);
+                saveClicked();
             }
         });
 
@@ -117,6 +120,12 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
 
     private void cancelClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+    private void dontSaveClicked() {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+    private void saveClicked() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 

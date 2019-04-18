@@ -132,9 +132,6 @@ public class FontFrame extends JFrame {
         setVisible(true);
         repaint();
 
-
-
-
         canselButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
