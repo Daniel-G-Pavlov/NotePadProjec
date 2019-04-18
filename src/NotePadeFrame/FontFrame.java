@@ -1,16 +1,18 @@
 package NotePadeFrame;
 
 import javax.swing.*;
+import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.*;
 
 public class FontFrame extends JFrame {
 
+
     protected JFrame fontFrame = new JFrame();
     protected JPanel fontPanel = new JPanel();
     protected JLabel labelFontFrameSample = new JLabel();
-    public static String fontName ="Arial";
-    public static int fontSize =15;
+    public  static String fontName ="Arial";
+    public  static int fontSize =15;
     public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
     public FontFrame( String fontName, int fontSize, Font font ) throws HeadlessException {
@@ -20,6 +22,7 @@ public class FontFrame extends JFrame {
     }
 
     public static String getFontName() {
+        System.out.println(fontName);
         return fontName;
     }
 
@@ -28,6 +31,7 @@ public class FontFrame extends JFrame {
     }
 
     public static int getFontSize() {
+        System.out.println(fontSize);
         return fontSize;
     }
 
@@ -88,9 +92,8 @@ public class FontFrame extends JFrame {
                     fontName = comboBox.getSelectedItem().toString();
                     labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
                     Font font = new Font(fontName, Font.PLAIN, fontSize);
-//                    textArea.setFont(new Font(fontName, Font.PLAIN, fontSize));
-//                    textArea.getFont();
                     System.out.println("nowo "+ font);
+
                 }
             }
         });
@@ -142,13 +145,17 @@ public class FontFrame extends JFrame {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)  {
-//                TextPaneFrame textPaneFrame = new TextPaneFrame();
+
 
                 okClicked();
             }
-
         });
+    }
 
+    Font setFont(String fontName, int plain, int fontSize) {
+
+        Font font = new Font(fontName, plain, fontSize);
+        return font;
     }
 
     private void ScrollPaneFont( int i, int y, int i2, int y2 ) {

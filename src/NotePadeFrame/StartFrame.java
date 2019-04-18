@@ -1,15 +1,23 @@
 package NotePadeFrame;
 
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.text.DefaultEditorKit;
-import javax.swing.text.JTextComponent;
-import javax.swing.text.TextAction;
-import java.awt.*;
-import java.awt.event.*;
+        import javax.swing.*;
+        import javax.swing.border.BevelBorder;
+        import javax.swing.text.DefaultEditorKit;
+        import javax.swing.text.JTextComponent;
+        import javax.swing.text.TextAction;
+        import java.awt.*;
+        import java.awt.event.*;
+        import java.io.File;
+        import java.io.FileNotFoundException;
+        import java.util.Scanner;
+
 
 public class StartFrame extends JFrame {
 
+
+    public static String setFileName;
+    public static String setFontName;
+    public static int setFontSize;
     private JFrame frame = new JFrame();
     private JPanel panel = new JPanel();
     private JPanel statusPanel = new JPanel();
@@ -22,13 +30,14 @@ public class StartFrame extends JFrame {
     private JButton button = new JButton();
     public boolean dontSaveCommand = true;
     public String fileName = "Untitled";
-    public String fontName;
+    public String fontName ;
     public int fontSize;
-    public String fontNameModif = "Arial";
-    public int fontSizeModif = 15;
-//    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
 
 
+    public StartFrame(JTextArea textArea) throws HeadlessException {
+        this.textArea = textArea;
+    }
+    
     private JMenuBar menuBar;
     private JMenu file, edit, format, view, help;
     private JMenuItem newFile, open, save, saveAs, exit;
@@ -39,7 +48,7 @@ public class StartFrame extends JFrame {
     private Action[] textActions = {new DefaultEditorKit.CutAction(),
             new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
-    private PopupListener popupListener = new PopupListener();
+    public PopupListener popupListener = new PopupListener();
 
     private static String CUT_ACTION_NAME = "cut";
     private static String COPY_ACTION_NAME = "copy";
@@ -50,16 +59,17 @@ public class StartFrame extends JFrame {
         this.scrollPane = scrollPane;
     }
 
-    public JTextArea getTextArea() {
-        return textArea;
+    public static void getScrollPane(TextArea textArea) {
+    }
+
+    protected static void getFontFrameNew( JTextArea textArea) {
+    }
+
+    protected static void getScrollPane(JTextArea textArea) {
     }
 
     public void setTextArea( JTextArea textArea ) {
         this.textArea = textArea;
-    }
-
-    public JScrollPane getScrollPane() {
-        return scrollPane;
     }
 
     public void setScrollPane( JScrollPane scrollPane ) {
@@ -72,6 +82,10 @@ public class StartFrame extends JFrame {
 
     public void setFileName( String fileName ) {
         this.fileName = fileName;
+    }
+
+    public StartFrame(JScrollPane scrollPane) throws HeadlessException {
+        this.scrollPane = scrollPane;
     }
 
     public StartFrame() {
@@ -115,13 +129,8 @@ public class StartFrame extends JFrame {
 //        statusPanel.add(statusLabel);
         panel.add(statusPanel, BorderLayout.SOUTH);
 
-        fontName = fontNameModif;
-        fontSize = fontSizeModif;
-        textArea.setEditable(true);
-        textArea.setFont(new Font(fontName, Font.BOLD, fontSize));
-        textArea.addMouseListener(popupListener);
-        JScrollPane scrollPane = new JScrollPane(textArea);
 
+        JScrollPane scrollPane = TextAreaFont();
 
 
         menuBar.add(file);
@@ -186,9 +195,22 @@ public class StartFrame extends JFrame {
         open.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                OpenFrame openFrame = new OpenFrame();
+                try {
+                    OpenFrame openFrame = new OpenFrame(fileName);
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+
+                JTextArea textArea = new JTextArea();
+//                 getReadFile(fileReader);
+
+                textArea.setEditable(true);
+                textArea.setFont(new Font(StartFrame.setFontName, Font.BOLD, StartFrame.setFontSize));
+                textArea.addMouseListener(popupListener);
+                StartFrame.getScrollPane(textArea);
+
             }
-        });
+    });
 
         save.addActionListener(new ActionListener() {
             @Override
@@ -217,10 +239,6 @@ public class StartFrame extends JFrame {
             public void actionPerformed( ActionEvent e ) {
 
                 CutFram cutFram = new CutFram("Cut");
-
-
-
-
 
             }
         });
@@ -271,20 +289,12 @@ public class StartFrame extends JFrame {
 
         fontStyle.addActionListener(new ActionListener() {
 
-            //            public  String fontNameModif;
-//            public  int fontSizeModif;
             @Override
             public void actionPerformed( ActionEvent e ) {
                 FontFrame fontFrame = new FontFrame();
 
-
-                fontNameModif = fontFrame.setFontName();
-                fontSizeModif = fontFrame.setFontSize();
-
-                Font font = new Font(fontNameModif, java.awt.Font.BOLD, fontSizeModif);
-
-                System.out.println(font);
-
+                fontName = fontFrame.getFontName();
+                fontSize = fontFrame.getFontSize();
             }
         });
 
@@ -307,12 +317,21 @@ public class StartFrame extends JFrame {
 
     }
 
+    JScrollPane TextAreaFont() {
+        fontName = FontFrame.fontName;
+        fontSize = FontFrame.fontSize;
+        textArea.setEditable(true);
+        textArea.setFont(new Font(fontName, Font.BOLD, fontSize));
+        textArea.addMouseListener(popupListener);
+        return new JScrollPane(textArea);
+    }
+
 
     public JComponent getCutAction() {
         return panel;
     }
 
-    class PopupListener extends MouseAdapter {
+    public class PopupListener extends MouseAdapter {
         public void mousePressed( MouseEvent e ) {
             maybeShowPopup(e);
         }
@@ -346,7 +365,6 @@ public class StartFrame extends JFrame {
         }
 
     }
-
 
 }
 
