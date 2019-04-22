@@ -1,193 +1,163 @@
 package NotePadeFrame;
 
-import javax.swing.*;
-import javax.swing.text.Document;
+import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
-public class FontFrame extends JFrame {
+public class FontFrame extends JPanel{
+    private Font thisFont;
+    private JList jFace, jStyle, jSize;
+    private JDialog dialog;
+    private JButton okButton;
+    JTextArea textArea;
+    private boolean ok;
 
+    public FontFrame(Font withFont) {
+        thisFont = withFont;
 
-    protected JFrame fontFrame = new JFrame();
-    protected JPanel fontPanel = new JPanel();
-    protected JLabel labelFontFrameSample = new JLabel();
-    public  static String fontName ="Arial";
-    public  static int fontSize =15;
-    public Font font = new Font(fontName, java.awt.Font.BOLD,fontSize);
+        String[] fontNames =
+                GraphicsEnvironment
+                        .getLocalGraphicsEnvironment()
+                        .getAvailableFontFamilyNames();
+        jFace = new JList(fontNames);
+        jFace.setSelectedIndex(0);
 
-    public FontFrame( String fontName, int fontSize, Font font ) throws HeadlessException {
-        this.fontName = fontName;
-        this.fontSize = fontSize;
-        this.font = font;
-    }
-
-    public static String getFontName() {
-        System.out.println(fontName);
-        return fontName;
-    }
-
-    public void setFontName( String fontName ) {
-        this.fontName = fontName;
-    }
-
-    public static int getFontSize() {
-        System.out.println(fontSize);
-        return fontSize;
-    }
-
-    public void setFontSize( int fontSize ) {
-        this.fontSize = fontSize;
-    }
-
-    @Override
-    public Font getFont() {
-        return font;
-    }
-
-    @Override
-    public void setFont( Font font ) {
-        this.font = font;
-    }
-
-    public  FontFrame() {
-
-
-        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String[] fontFamilyNames = graphicsEnvironment.getAvailableFontFamilyNames();
-        JComboBox comboBox = new JComboBox<>(fontFamilyNames);
-        comboBox.setVisible(true);
-        comboBox.setBounds(50, 50, 200, 20);
-        comboBox.setSelectedItem(0);
-        fontPanel.add(comboBox);
-
-        GraphicsEnvironment graphicsEnvironmentSize = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        Integer[] ListFontSize = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
-        JComboBox comboBoxSize = new JComboBox(ListFontSize);
-        comboBoxSize.setVisible(true);
-        comboBoxSize.setBounds(320, 50, 60, 20);
-        comboBoxSize.setSelectedItem(0);
-        fontPanel.add(comboBoxSize);
-
-        comboBoxSize.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged( ItemEvent e ) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    fontSize = comboBoxSize.getSelectedItem().hashCode();
-                    labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
-                    Font font = new Font(fontName, Font.PLAIN, fontSize);
-//                    textArea.setFont(new Font(fontName, Font.PLAIN, fontSize));
-//                    textArea.getFont();
-                    System.out.println("nowo "+ font);
-                }
-            }
-        });
-        pack();
-
-        comboBox.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged( ItemEvent e ) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    fontName = comboBox.getSelectedItem().toString();
-                    labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, fontSize));
-                    Font font = new Font(fontName, Font.PLAIN, fontSize);
-                    System.out.println("nowo "+ font);
-
-                }
-            }
-        });
-        pack();
-
-        labelFontFrameSample.setBounds(50, 240, 360, 72);
-        labelFontFrameSample.setText("AaBbCcFf");
-        labelFontFrameSample.setFont(new Font(fontName, Font.PLAIN, 48));
-        labelFontFrameSample.setVisible(true);
-        fontPanel.add(labelFontFrameSample);
-
-        setTitle("Font");
-        setSize(450, 420);
-        setLocation(350, 80);
-        fontPanel.setLayout(null);
-        getContentPane().add(fontPanel);
-
-        LableFont(50, 30, 60, 10, "Font");
-        LableFont(320, 30, 60, 10, "Size");
-        LableFont(50, 220, 60, 20, "Sample");
-
-        ScrollPaneFont(50, 70, 200, 148);
-        ScrollPaneFont(320, 70, 63, 148);
-
-        JButton okButton = new JButton();
-        okButton.setText("OK");
-        okButton.setBounds(140, 350, 100, 30);
-        okButton.setVisible(true);
-        fontPanel.add(okButton);
-
-        JButton canselButton = new JButton();
-        canselButton.setText("Cansel");
-        canselButton.setBounds(285, 350, 100, 30);
-        canselButton.setVisible(true);
-        fontPanel.add(canselButton);
-
-        setDefaultCloseOperation(FontFrame.DISPOSE_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
-        repaint();
-
-        canselButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cancelClicked();
+        jFace.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent ev) {
+                textArea.setFont(createFont());
             }
         });
 
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)  {
+        String[] fontStyles = {"Regular", "Italic", "Bold", "Bold Italic"};
+        jStyle = new JList(fontStyles);
+        jStyle.setSelectedIndex(0);
 
-
-                okClicked();
+        jStyle.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent ev) {
+                textArea.setFont(createFont());
             }
         });
+
+        String[] fontSizes = new String[30];
+        for (int j = 0; j < 30; j++)
+            fontSizes[j] = new String(10 + j * 2 + "");
+        jSize = new JList(fontSizes);
+        jSize.setSelectedIndex(0);
+
+        jSize.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent ev) {
+                textArea.setFont(createFont());
+            }
+        });
+
+        JPanel panelLabel = new JPanel();
+        panelLabel.setLayout(new GridLayout(1, 3));
+
+        panelLabel.add(new JLabel("Font", JLabel.CENTER));
+        panelLabel.add(new JLabel("Font Style", JLabel.CENTER));
+        panelLabel.add(new JLabel("Size", JLabel.CENTER));
+
+        JPanel panelList = new JPanel();
+        panelList.setLayout(new GridLayout(1, 3));
+
+        panelList.add(new JScrollPane(jFace));
+        panelList.add(new JScrollPane(jStyle));
+        panelList.add(new JScrollPane(jSize));
+
+        okButton = new JButton("        OK        ");
+        JButton cancelButton = new JButton("     Cancel    ");
+
+        okButton.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent ev) {
+                        ok = true;
+                        FontFrame.this.thisFont = FontFrame.this.createFont();
+                        dialog.setVisible(false);
+                    }
+                });
+
+        cancelButton.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent ev) {
+                        dialog.setVisible(false);
+                    }
+                });
+
+        JPanel panelButton = new JPanel();
+        panelButton.setLayout(new FlowLayout());
+        panelButton.add(okButton);
+        panelButton.add(new JLabel("                         "));
+        panelButton.add(cancelButton);
+
+        textArea = new JTextArea(10, 25);
+        JPanel panelTextField = new JPanel();
+        panelTextField.add(new JScrollPane(textArea));
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new GridLayout(2, 1));
+        centerPanel.add(panelList);
+        centerPanel.add(panelTextField);
+
+        setLayout(new BorderLayout());
+        add(panelLabel, BorderLayout.NORTH);
+        add(centerPanel, BorderLayout.CENTER);
+        add(panelButton, BorderLayout.SOUTH);
+
+        add(new JLabel("  "), BorderLayout.EAST);
+        add(new JLabel("  "), BorderLayout.WEST);
+
+        textArea.setFont(thisFont);
+        textArea.append("\nAaBbCcDdEeFf");
     }
 
-    Font setFont(String fontName, int plain, int fontSize) {
+    public Font createFont() {
+        Font fnt = thisFont;
+        int fontstyle = Font.PLAIN;
+        int x = jStyle.getSelectedIndex();
 
-        Font font = new Font(fontName, plain, fontSize);
-        return font;
+        switch (x) {
+            case 0:
+                fontstyle = Font.PLAIN;
+                break;
+            case 1:
+                fontstyle = Font.ITALIC;
+                break;
+            case 2:
+                fontstyle = Font.BOLD;
+                break;
+            case 3:
+                fontstyle = Font.BOLD + Font.ITALIC;
+                break;
+        }
+
+        int fontsize = Integer.parseInt((String) jSize.getSelectedValue());
+        String fontname = (String) jFace.getSelectedValue();
+
+        fnt = new Font(fontname, fontstyle, fontsize);
+
+        return fnt;
+
     }
 
-    private void ScrollPaneFont( int i, int y, int i2, int y2 ) {
-        JScrollPane scrollPaneFont = new JScrollPane();
-        scrollPaneFont.setBounds(i, y, i2, y2);
-        scrollPaneFont.setVisible(true);
-        scrollPaneFont.createVerticalScrollBar();
-        fontPanel.add(scrollPaneFont);
-    }
+    public boolean showDialog(Component parent, String title) {
+        ok = false;
 
-    private void LableFont( int i, int y, int i2, int y2, String font ) {
-        JLabel labelFont = new JLabel();
-        labelFont.setBounds(i, y, i2, y2);
-        labelFont.setText(font);
-        labelFont.setVisible(true);
-        fontPanel.add(labelFont);
-    }
+        Frame owner = null;
+        if (parent instanceof Frame)
+            owner = (Frame) parent;
+        else
+            owner = (Frame) SwingUtilities.getAncestorOfClass(Frame.class, parent);
+        if (dialog == null || dialog.getOwner() != owner) {
+            dialog = new JDialog(owner, true);
+            dialog.add(this);
+            dialog.getRootPane().setDefaultButton(okButton);
+            dialog.setSize(500, 425);
+        }
 
-    public int setFontSize() {
-        return fontSize;
+        dialog.setTitle(title);
+        dialog.setVisible(true);
+        return ok;
     }
-
-    public String setFontName() {
-        return fontName;
-    }
-
-
-    private void cancelClicked() {
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-    }
-    private void okClicked() {
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-    }
-
 }

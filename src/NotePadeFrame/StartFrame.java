@@ -1,60 +1,57 @@
 package NotePadeFrame;
 
-        import javax.swing.*;
-        import javax.swing.border.BevelBorder;
-        import javax.swing.text.DefaultEditorKit;
-        import javax.swing.text.JTextComponent;
-        import javax.swing.text.TextAction;
-        import java.awt.*;
-        import java.awt.event.*;
-        import java.io.File;
-        import java.io.FileNotFoundException;
-        import java.util.Scanner;
+import javafx.scene.control.Labeled;
 
+import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.text.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class StartFrame extends JFrame {
 
+    FontFrame dialog = null;
 
     public static String setFileName;
     public static String setFontName;
     public static int setFontSize;
-    private JFrame frame = new JFrame();
+
     private JPanel panel = new JPanel();
-    private JPanel statusPanel = new JPanel();
+    private JTextField textField = new JTextField();
     private String status = " kl ";
-    private int col = 0;
-    private int row = 0;
+    public static int col = 1;
+    public static int row = 1;
+    private JFrame frame = new JFrame();
     private JTextArea textArea = new JTextArea(10, 30);
     private JScrollPane scrollPane = new JScrollPane(textArea);
-    private JLabel label = new JLabel();
+    private JLabel labelStatusBar = new JLabel();
     private JButton button = new JButton();
     public boolean dontSaveCommand = true;
     public String fileName = "Untitled";
-    public String fontName ;
+    public String fontName;
     public int fontSize;
-
-
-    public StartFrame(JTextArea textArea) throws HeadlessException {
-        this.textArea = textArea;
-    }
-    
-    private JMenuBar menuBar;
-    private JMenu file, edit, format, view, help;
-    private JMenuItem newFile, open, save, saveAs, exit;
-    private JMenuItem cut, copy, paste, delete, find, findNext, replace;
-    private JMenuItem fontStyle;
-    private JCheckBoxMenuItem statusBar;
-    private JMenuItem aboutNotePad;
     private Action[] textActions = {new DefaultEditorKit.CutAction(),
             new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
     public PopupListener popupListener = new PopupListener();
 
+
+    public StartFrame(JTextArea textArea) throws HeadlessException {
+        this.textArea = textArea;
+    }
+
     private static String CUT_ACTION_NAME = "cut";
     private static String COPY_ACTION_NAME = "copy";
     private static String PASTE_ACTION_NAME = "paste";
 
-    public StartFrame( JTextArea textArea, JScrollPane scrollPane ) throws HeadlessException {
+    public StartFrame(JTextArea textArea, JScrollPane scrollPane) throws HeadlessException {
         this.textArea = textArea;
         this.scrollPane = scrollPane;
     }
@@ -62,17 +59,17 @@ public class StartFrame extends JFrame {
     public static void getScrollPane(TextArea textArea) {
     }
 
-    protected static void getFontFrameNew( JTextArea textArea) {
+    protected static void getFontFrameNew(JTextArea textArea) {
     }
 
     protected static void getScrollPane(JTextArea textArea) {
     }
 
-    public void setTextArea( JTextArea textArea ) {
+    public void setTextArea(JTextArea textArea) {
         this.textArea = textArea;
     }
 
-    public void setScrollPane( JScrollPane scrollPane ) {
+    public void setScrollPane(JScrollPane scrollPane) {
         this.scrollPane = scrollPane;
     }
 
@@ -80,7 +77,7 @@ public class StartFrame extends JFrame {
         return fileName;
     }
 
-    public void setFileName( String fileName ) {
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
@@ -90,114 +87,47 @@ public class StartFrame extends JFrame {
 
     public StartFrame() {
 
-        menuBar = new JMenuBar();
+        super("Font");
 
-        file = new JMenu("File");
-        newFile = new JMenuItem("New");
-        open = new JMenuItem("Open");
-        save = new JMenuItem("Save");
-        saveAs = new JMenuItem("Save As...");
-        exit = new JMenuItem("Exit");
+        MenuBar menuBar = new MenuBar();
 
-        edit = new JMenu("Edit");
-        cut = new JMenuItem("Cut");
-        copy = new JMenuItem("Copy");
-        paste = new JMenuItem("Paste");
-        delete = new JMenuItem("Delete");
-        find = new JMenuItem("Find");
-        findNext = new JMenuItem("Find Next");
-        replace = new JMenuItem("Replace...");
-
-        format = new JMenu("Formate");
-        fontStyle = new JMenuItem("Font");
-
-        view = new JMenu("View");
-        statusBar = new JCheckBoxMenuItem("Status Bar");
-
-        help = new JMenu("Help");
-        aboutNotePad = new JMenuItem("About NotePad");
+        panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        panel.setLayout(new BorderLayout(5, 5));
+        getContentPane().add(panel);
+        panel.add(labelStatusBar, BorderLayout.SOUTH);
+        FontFrameSet();
 
         setTitle(fileName + " - NotePade");
         setSize(600, 500);
         setLocation(250, 30);
 
-        panel.setLayout(new BorderLayout());
-
-        statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
-        statusPanel.setPreferredSize(new Dimension(panel.getWidth(), 22));
-        JLabel statusLabel = new JLabel("Row " + row + " , Col " + col);
-//        statusPanel.add(statusLabel);
-        panel.add(statusPanel, BorderLayout.SOUTH);
-
-
-        JScrollPane scrollPane = TextAreaFont();
-
-
-        menuBar.add(file);
-        file.add(newFile);
-        file.add(open);
-        file.add(save);
-        file.add(saveAs);
-        file.add(exit);
-
-        menuBar.add(edit);
-        edit.add(cut);
-        edit.add(copy);
-        edit.add(paste);
-        edit.add(delete);
-        edit.add(find);
-        edit.add(findNext);
-        edit.add(replace);
-
-        menuBar.add(format);
-        format.add(fontStyle);
-
-        menuBar.add(view);
-        view.add(statusBar);
-
-        menuBar.add(help);
-        help.add(aboutNotePad);
-
-        for (Action textAction : textActions) {
-
-
-
-            popup.add(new JMenuItem(textAction));
-        }
-
-        scrollPane.isMaximumSizeSet();
-        panel.add(scrollPane);
-        getContentPane().add(panel);
-
-
-
-        this.setJMenuBar(menuBar);
-
-        panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        panel.setLayout(new BorderLayout(5, 5));
-        panel.add(scrollPane, BorderLayout.CENTER);
-
-        frame.setLocationByPlatform(true);
-
-        setDefaultCloseOperation(StartFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         setVisible(true);
         repaint();
 
+        for (Action textAction : textActions) {
+            popup.add(new JMenuItem(textAction));
+        }
 
-        newFile.addActionListener(new ActionListener() {
+        this.setJMenuBar(MenuBar.menuBar);
+        textArea.addMouseListener(popupListener);
+
+        MenuBar.newFile.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 NewFileFrame newFileFrame = new NewFileFrame(fileName);
                 System.out.println("textarae");
             }
         });
 
-        open.addActionListener(new ActionListener() {
+        MenuBar.open.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     OpenFrame openFrame = new OpenFrame(fileName);
                 } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
 
@@ -210,137 +140,182 @@ public class StartFrame extends JFrame {
                 StartFrame.getScrollPane(textArea);
 
             }
-    });
+        });
 
-        save.addActionListener(new ActionListener() {
+        MenuBar.save.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 SaveFrame saveFrame = new SaveFrame(fileName);
             }
         });
 
-        saveAs.addActionListener(new ActionListener() {
+        MenuBar.saveAs.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 SaveAsFrame saveAsFrame = new SaveAsFrame(fileName);
             }
         });
 
-        exit.addActionListener(new ActionListener() {
+        MenuBar.exit.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 ExitFrame exitFrame = new ExitFrame(fileName);
 
             }
         });
 
-        cut.addActionListener(new ActionListener() {
+        MenuBar.cut.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
                 CutFram cutFram = new CutFram("Cut");
 
             }
         });
 
-        copy.addActionListener(new ActionListener() {
+        MenuBar.copy.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 CopyFrame copyFrame = new CopyFrame();
 
 
             }
         });
 
-        paste.addActionListener(new ActionListener() {
+        MenuBar.paste.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
 
-        delete.addActionListener(new ActionListener() {
+        MenuBar.delete.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
 
-        find.addActionListener(new ActionListener() {
+        MenuBar.find.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 FindFrame findFrame = new FindFrame();
             }
         });
 
-        findNext.addActionListener(new ActionListener() {
+        MenuBar.findNext.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
 
-        replace.addActionListener(new ActionListener() {
+        MenuBar.replace.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 ReplaceFrame replaceFrame = new ReplaceFrame();
             }
         });
 
-        fontStyle.addActionListener(new ActionListener() {
+        MenuBar.fontStyle.addActionListener(new ActionListener() {
 
             @Override
-            public void actionPerformed( ActionEvent e ) {
-                FontFrame fontFrame = new FontFrame();
+            public void actionPerformed(ActionEvent e) {
+//                FontFrame fontFrame = new FontFrame();
 
-                fontName = fontFrame.getFontName();
-                fontSize = fontFrame.getFontSize();
+                if (dialog == null)
+                    dialog = new FontFrame(textArea.getFont());
+                if(dialog.showDialog(StartFrame.this,"Choose a font"))
+                {
+                    StartFrame.this.textArea.setFont(dialog.createFont());
+                }
+
+
+//                fontName = FontFrame.getFontName();
+//                fontSize = FontFrame.getFontSize();
             }
         });
 
-        statusBar.addActionListener(new ActionListener() {
+        MenuBar.statusBar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
-                statusPanel.add(statusLabel);
-                panel.add(statusPanel);
-                statusPanel.setVisible(true);
-                System.out.println("dffd");
-            }
+            public void actionPerformed(ActionEvent e) {
+                AbstractButton aButton = (AbstractButton) e.getSource();
+                boolean selected = aButton.getModel().isSelected();
+                StatusBarSet();
+                Icon newIcon;
+                if (selected) {
+                    labelStatusBar.setVisible(true);
+                } else {
+                    labelStatusBar.setVisible(false);
+                }
+            };
         });
 
-        aboutNotePad.addActionListener(new ActionListener() {
+        MenuBar.aboutNotePad.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 AboutFrame aboutFrame = new AboutFrame();
+
             }
+
         });
 
+
     }
 
-    JScrollPane TextAreaFont() {
-        fontName = FontFrame.fontName;
-        fontSize = FontFrame.fontSize;
-        textArea.setEditable(true);
+    private void StatusBarSet() {
+        textArea.addCaretListener(new CaretListener() {
+            public void caretUpdate(CaretEvent e) {
+                JTextArea editArea = (JTextArea) e.getSource();
+
+                try {
+                    int caretpos = editArea.getCaretPosition();
+                    row = editArea.getLineOfOffset(caretpos);
+                    col = caretpos - editArea.getLineStartOffset(row);
+                    row += 1;
+                } catch (Exception ex) {
+                }
+                labelStatusBar(row, col);
+
+                labelStatusBar.setFont(new Font(fontName, Font.BOLD, 10));
+                labelStatusBar.setText("Row : " + row + "   Col : " + col);
+//                labelStatusBar.setVisible(true);
+            }
+        });
+    }
+
+    public static void labelStatusBar(int row, int col) {
+    }
+
+
+    private void FontFrameSet() {
+//        fontName = FontFrame.getFontName();
+//        fontSize = FontFrame.getFontSize();
         textArea.setFont(new Font(fontName, Font.BOLD, fontSize));
-        textArea.addMouseListener(popupListener);
-        return new JScrollPane(textArea);
+        panel.add(scrollPane, BorderLayout.CENTER);
     }
 
+    public JMenuBar getJMenuBar() {
+        return MenuBar.menuBar;
+    }
 
     public JComponent getCutAction() {
         return panel;
     }
 
+    public void setNameFrame(String fileName) {
+    }
+
     public class PopupListener extends MouseAdapter {
-        public void mousePressed( MouseEvent e ) {
+        public void mousePressed(MouseEvent e) {
             maybeShowPopup(e);
         }
 
-        public void mouseReleased( MouseEvent e ) {
+        public void mouseReleased(MouseEvent e) {
             maybeShowPopup(e);
         }
 
-        private void maybeShowPopup( MouseEvent e ) {
+        private void maybeShowPopup(MouseEvent e) {
             if (e.isPopupTrigger()) {
                 popup.show(e.getComponent(),
                         e.getX(), e.getY());
@@ -350,12 +325,12 @@ public class StartFrame extends JFrame {
 
     public class CutFram extends TextAction {
 
-        public CutFram( String name ) {
+        public CutFram(String name) {
             super(name);
         }
 
         @Override
-        public void actionPerformed( ActionEvent e ) {
+        public void actionPerformed(ActionEvent e) {
             popup.add(new JMenuItem((Action) getCutAction()));
             JTextComponent target = getTextComponent(e);
             if (target != null) {
