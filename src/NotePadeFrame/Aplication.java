@@ -1,7 +1,6 @@
 package NotePadeFrame;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Aplication {
 

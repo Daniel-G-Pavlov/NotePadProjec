@@ -3,13 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7e283dbd-8428-4190-9d54-e58342399e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Untitled.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/META-INF/NotePadeProject.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/Aplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/Aplication$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/Aplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/Aplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/FontFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/CreationTextFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/CreationTextFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/OpenFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/OpenFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveAsFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveAsFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$11.class" afterDir="false" />
@@ -17,6 +22,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$13.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$14.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$16.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$4.class" afterDir="false" />
@@ -28,6 +34,13 @@
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$CutFram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$CutFram.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$PopupListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$PopupListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/Aplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/Aplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +54,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+            <state>
+              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,34 +78,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+            <state relative-caret-position="340">
+              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2628#2629#0" expanded="true" />
-                <element signature="e#2675#2676#0" expanded="true" />
-                <element signature="e#4025#4026#0" expanded="true" />
-                <element signature="e#4110#4111#0" expanded="true" />
+                <element signature="e#2290#2291#0" expanded="true" />
+                <element signature="e#2337#2338#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontFrame.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Untitled.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="93" column="39" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
+            <state relative-caret-position="480">
+              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-                <element signature="e#1236#1237#0" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-                <element signature="e#1648#1649#0" expanded="true" />
-                <element signature="e#2632#2633#0" expanded="true" />
-                <element signature="e#2704#2705#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,20 +109,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
+            <state relative-caret-position="1960">
+              <caret line="114" column="56" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4513#4514#0" expanded="true" />
-                <element signature="e#4590#4591#0" expanded="true" />
-                <element signature="e#4746#4747#0" expanded="true" />
-                <element signature="e#4829#4830#0" expanded="true" />
-                <element signature="e#6004#6005#0" expanded="true" />
-                <element signature="e#6073#6074#0" expanded="true" />
-                <element signature="e#6403#6404#0" expanded="true" />
-                <element signature="e#6481#6482#0" expanded="true" />
-                <element signature="e#9138#9139#0" expanded="true" />
-                <element signature="e#9206#9207#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,12 +162,8 @@
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ImagePreview.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ImageFilter.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ImageFileView.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/AboutFrame.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/PopupListener.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/CopyFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/DeleteFrame.java" />
@@ -165,17 +171,22 @@
         <option value="$PROJECT_DIR$/src/NotePadeFrame/CutFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/ScrolPaneFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/SetUpFrame.java" />
-        <option value="$PROJECT_DIR$/Untitled.txt" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/FontChooserTest.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/FontChooser.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/StatusBar.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/StatusBarFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/MenuBar.java" />
-        <option value="$PROJECT_DIR$/src/NotePadeFrame/Aplication.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/CheckBox.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/FontDemo.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/FontFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/Aplication.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java" />
+        <option value="$PROJECT_DIR$/Untitled" />
+        <option value="$PROJECT_DIR$/Untitled.txt" />
+        <option value="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" />
         <option value="$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java" />
       </list>
     </option>
@@ -192,21 +203,22 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="NotePadProjec 20" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NotePadProjec 20" type="462c0819:PsiDirectoryNode" />
+              <item name="NotePadProjec 22" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NotePadProjec 22" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NotePadProjec 20" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NotePadProjec 20" type="462c0819:PsiDirectoryNode" />
+              <item name="NotePadProjec 22" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NotePadProjec 22" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NotePadProjec 20" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NotePadProjec 20" type="462c0819:PsiDirectoryNode" />
+              <item name="NotePadProjec 22" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NotePadProjec 22" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NotePadeFrame" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -214,18 +226,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555965221376" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556024433225" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjecNotepad oring" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjecNotepad" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -296,6 +307,7 @@
       <workItem from="1555605970081" duration="21336000" />
       <workItem from="1555715572773" duration="3166000" />
       <workItem from="1555943602556" duration="21021000" />
+      <workItem from="1556033368663" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="FontFrame new">
       <created>1554999419258</created>
@@ -406,12 +418,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73585000" />
+    <option name="totallyTimeSpent" value="74182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22043702" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22622108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -419,8 +432,8 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3293011" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2016129" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20134228" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,7 +444,7 @@
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.3293011" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.21102151" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.21029083" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -444,7 +457,7 @@
       <window_info anchor="right" id="Database" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26466992" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22310513" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -452,9 +465,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32997763" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15212528" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20134228" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -464,7 +477,7 @@
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.3293011" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3277405" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.21029083" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -498,7 +511,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Set Status Bar" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBarSymular.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/JStatusBar.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBarSimulator.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SeparatorPanel.java" />
@@ -556,16 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/PopupListener.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/DeleteFrame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -595,76 +597,13 @@
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SetUpFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontChooserTest.java" />
     <entry file="file://$PROJECT_DIR$/../ProjecNotepad oring/ProjecNotepad.iml" />
-    <entry file="file://$PROJECT_DIR$/Untitled.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NotePadeProject.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBarFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/Aplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/CheckBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBar.java" />
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StatusBarFrame.java" />
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/CheckBox.java" />
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/MenuBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -682,20 +621,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontChooser.java" />
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontDemo.java" />
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        <state relative-caret-position="1700">
+          <caret line="93" column="39" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontChooser.java">
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="240">
+          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#982#983#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/Aplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <folding>
+            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Untitled">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/OpenFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -704,62 +671,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        <state relative-caret-position="340">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2628#2629#0" expanded="true" />
-            <element signature="e#2675#2676#0" expanded="true" />
-            <element signature="e#4025#4026#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+            <element signature="e#2337#2338#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Untitled.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
-            <element signature="e#4590#4591#0" expanded="true" />
-            <element signature="e#4746#4747#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
-            <element signature="e#6004#6005#0" expanded="true" />
-            <element signature="e#6073#6074#0" expanded="true" />
-            <element signature="e#6403#6404#0" expanded="true" />
-            <element signature="e#6481#6482#0" expanded="true" />
-            <element signature="e#9138#9139#0" expanded="true" />
-            <element signature="e#9206#9207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="1960">
+          <caret line="114" column="56" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FontFrame.java">
+    <entry file="file://$PROJECT_DIR$/NotePadeProject.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="93" column="39" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
+        <state relative-caret-position="303">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#1236#1237#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1648#1649#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
           </folding>
         </state>
       </provider>

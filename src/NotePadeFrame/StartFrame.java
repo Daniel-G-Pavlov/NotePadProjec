@@ -1,59 +1,50 @@
 package NotePadeFrame;
 
-import javafx.scene.control.Labeled;
-
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 
 public class StartFrame extends JFrame {
 
+    public static StartFrame getScrollPane;
+    public static TextArea getTextArea;
     FontFrame dialog = null;
-
-    public static String setFileName;
-    public static String setFontName;
-    public static int setFontSize;
-
     private JPanel panel = new JPanel();
     private JTextField textField = new JTextField();
-    private String status = " kl ";
     public static int col = 1;
     public static int row = 1;
     private JFrame frame = new JFrame();
-    private JTextArea textArea = new JTextArea(10, 30);
+    public JTextArea textArea = new JTextArea(10, 30);
     private JScrollPane scrollPane = new JScrollPane(textArea);
     private JLabel labelStatusBar = new JLabel();
     private JButton button = new JButton();
     public boolean dontSaveCommand = true;
     public String fileName = "Untitled";
-    public String fontName;
-    public int fontSize;
+    public String fontName = "Arial";
+    public int fontStyle = 1;
+    public int fontSize = 15;
     private Action[] textActions = {new DefaultEditorKit.CutAction(),
             new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
     public PopupListener popupListener = new PopupListener();
 
-
-    public StartFrame(JTextArea textArea) throws HeadlessException {
+    public StartFrame(String fileName, JTextArea textArea, JScrollPane scrollPane) throws HeadlessException {
+        this.fontName = fileName;
         this.textArea = textArea;
+        this.scrollPane = scrollPane;
     }
 
     private static String CUT_ACTION_NAME = "cut";
     private static String COPY_ACTION_NAME = "copy";
     private static String PASTE_ACTION_NAME = "paste";
+    private static String DELETE_ACTION_NAME = "delete";
 
-    public StartFrame(JTextArea textArea, JScrollPane scrollPane) throws HeadlessException {
-        this.textArea = textArea;
-        this.scrollPane = scrollPane;
+    public StartFrame( JTextArea textArea ) {
+
     }
 
     public static void getScrollPane(TextArea textArea) {
@@ -62,11 +53,15 @@ public class StartFrame extends JFrame {
     protected static void getFontFrameNew(JTextArea textArea) {
     }
 
-    protected static void getScrollPane(JTextArea textArea) {
+    public JTextArea getTextArea() {
+        return textArea;
     }
 
-    public void setTextArea(JTextArea textArea) {
+    public void setTextArea( JTextArea textArea ) {
         this.textArea = textArea;
+    }
+
+    private static void getScrollPane( StartFrame textArea ) {
     }
 
     public void setScrollPane(JScrollPane scrollPane) {
@@ -79,10 +74,6 @@ public class StartFrame extends JFrame {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    public StartFrame(JScrollPane scrollPane) throws HeadlessException {
-        this.scrollPane = scrollPane;
     }
 
     public StartFrame() {
@@ -115,8 +106,7 @@ public class StartFrame extends JFrame {
         MenuBar.newFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NewFileFrame newFileFrame = new NewFileFrame(fileName);
-                System.out.println("textarae");
+                NewFileFrame newFileFrame = new NewFileFrame(fileName,textArea);
             }
         });
 
@@ -124,35 +114,24 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    OpenFrame openFrame = new OpenFrame(fileName);
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
+                    OpenFrame openFrame = new OpenFrame(fileName,textArea);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-
-                JTextArea textArea = new JTextArea();
-//                 getReadFile(fileReader);
-
-                textArea.setEditable(true);
-                textArea.setFont(new Font(StartFrame.setFontName, Font.BOLD, StartFrame.setFontSize));
-                textArea.addMouseListener(popupListener);
-                StartFrame.getScrollPane(textArea);
-
             }
         });
 
         MenuBar.save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaveFrame saveFrame = new SaveFrame(fileName);
+                SaveFrame saveFrame = new SaveFrame(fileName,textArea);
             }
         });
 
         MenuBar.saveAs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaveAsFrame saveAsFrame = new SaveAsFrame(fileName);
+                SaveAsFrame saveAsFrame = new SaveAsFrame(fileName,textArea);
             }
         });
 
@@ -160,16 +139,13 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ExitFrame exitFrame = new ExitFrame(fileName);
-
             }
         });
 
         MenuBar.cut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 CutFram cutFram = new CutFram("Cut");
-
             }
         });
 
@@ -177,22 +153,18 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CopyFrame copyFrame = new CopyFrame();
-
-
             }
         });
 
         MenuBar.paste.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
 
         MenuBar.delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
 
@@ -206,7 +178,6 @@ public class StartFrame extends JFrame {
         MenuBar.findNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
 
@@ -214,25 +185,6 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ReplaceFrame replaceFrame = new ReplaceFrame();
-            }
-        });
-
-        MenuBar.fontStyle.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                FontFrame fontFrame = new FontFrame();
-
-                if (dialog == null)
-                    dialog = new FontFrame(textArea.getFont());
-                if(dialog.showDialog(StartFrame.this,"Choose a font"))
-                {
-                    StartFrame.this.textArea.setFont(dialog.createFont());
-                }
-
-
-//                fontName = FontFrame.getFontName();
-//                fontSize = FontFrame.getFontSize();
             }
         });
 
@@ -255,12 +207,8 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AboutFrame aboutFrame = new AboutFrame();
-
             }
-
         });
-
-
     }
 
     private void StatusBarSet() {
@@ -276,10 +224,8 @@ public class StartFrame extends JFrame {
                 } catch (Exception ex) {
                 }
                 labelStatusBar(row, col);
-
                 labelStatusBar.setFont(new Font(fontName, Font.BOLD, 10));
                 labelStatusBar.setText("Row : " + row + "   Col : " + col);
-//                labelStatusBar.setVisible(true);
             }
         });
     }
@@ -287,11 +233,8 @@ public class StartFrame extends JFrame {
     public static void labelStatusBar(int row, int col) {
     }
 
-
     private void FontFrameSet() {
-//        fontName = FontFrame.getFontName();
-//        fontSize = FontFrame.getFontSize();
-        textArea.setFont(new Font(fontName, Font.BOLD, fontSize));
+        textArea.setFont(new Font(fontName, fontStyle, fontSize));
         panel.add(scrollPane, BorderLayout.CENTER);
     }
 
@@ -338,8 +281,11 @@ public class StartFrame extends JFrame {
             }
             getCutAction();
         }
-
     }
 
+    public static class setNameFrame {
+        public setNameFrame( String fileName ) {
+        }
+    }
 }
 

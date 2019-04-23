@@ -5,11 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.io.File;
+import java.io.*;
+
+import static NotePadeFrame.StartFrame.*;
 
 
 public class NewFileFrame extends JFrame implements ActionListener {
-
 
     private JPanel panel = new JPanel();
     private JLabel label = new JLabel();
@@ -18,12 +19,10 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JButton buttonCansel = new JButton();
     private JFileChooser fileChooser = new JFileChooser();
     private JMenuBar menuBar = new JMenuBar();
-    private JTextArea textArea = new JTextArea();
     private JTextField textField = new JTextField();
     public String fileName = "Untitled";
 
-    public NewFileFrame( String fileName ) {
-
+    public NewFileFrame( String fileName, JTextArea textArea ) {
 
         setTitle("Notpad");
         setSize(600, 600);
@@ -35,6 +34,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
         panel.add(fileChooser);
 
         setDefaultCloseOperation(NewFileFrame.DISPOSE_ON_CLOSE);
+
 
         textField.setEditable(false);
         textField.setText("Do you want to save changes to " + this.fileName + "?");
@@ -64,15 +64,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
         buttonCansel.setVisible(true);
         panel.add(buttonCansel);
 
-        buttonDontSave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
 
-                System.out.println("Печат не записвай");
-                CreationTextFile creationTextFile = new CreationTextFile(fileName);
-                dontSaveClicked();
-            }
-        });
 
         buttonCansel.addActionListener(new ActionListener() {
             @Override
@@ -81,22 +73,51 @@ public class NewFileFrame extends JFrame implements ActionListener {
             }
         });
 
+        buttonDontSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+
+                System.out.println("Печат не записвай");
+                dontSaveClicked();
+            }
+        });
+
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
 
-                CreationTextFile creationTextFile = new CreationTextFile(fileName);
+                BufferedWriter bf = null;
+                try {
+                    bf = new BufferedWriter(new FileWriter(fileName + ".txt"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                try {
+                    bf.write(textArea.getText());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                try {
+                    bf.flush();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                try {
+                    bf.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 saveClicked();
             }
         });
-
-//        buttonSave.addActionListener( this);
 
         pack();
         setVisible(true);
         repaint();
     }
 
+    public NewFileFrame() {
+    }
 
     @Override
     public void actionPerformed( ActionEvent e ) {
@@ -105,27 +126,31 @@ public class NewFileFrame extends JFrame implements ActionListener {
             int returnVal = jFileChooser.showOpenDialog(NotePadeFrame.NewFileFrame.this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = jFileChooser.getSelectedFile();
-                textArea.setText("Selected file: " + file.getName());
+                getTextArea.setText("Selected file: " + file.getName());
             } else if (returnVal == JFileChooser.CANCEL_OPTION) {
-                textArea.setText("Cancelled");
+                getTextArea.setText("Cancelled");
             } else if (returnVal == JFileChooser.ERROR_OPTION) {
-                textArea.setText("Error!");
+                getTextArea.setText("Error!");
             } else {
-                textArea.setText("unknown...");
+                getTextArea.setText("unknown...");
             }
         }
-
-
     }
 
 
     private void cancelClicked() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
+
     private void dontSaveClicked() {
+        getTextArea = new TextArea();
+
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
+
     private void saveClicked() {
+        getTextArea = new TextArea();
+
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
