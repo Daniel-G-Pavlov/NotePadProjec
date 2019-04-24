@@ -3,40 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7e283dbd-8428-4190-9d54-e58342399e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewFileNameSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NewFileNameSave.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Untitled.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Untitled.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/CreationTextFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/NewFileFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveAsFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveAsFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/SaveFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$CutFram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$CutFram.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$PopupListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame$PopupListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/StartFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/CreationTextFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveAsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/SaveFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/StartFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotePadeFrame/WriterFileNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotePadeFrame/WriterFileNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotePadeProject/NotePadeFrame/ExitFrame.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,20 +19,21 @@
     <session id="-1138016519">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="882" />
-          <entry key="txt" value="54" />
+          <entry key="java" value="886" />
+          <entry key="txt" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="882" />
-          <entry key="PLAIN_TEXT" value="54" />
+          <entry key="JAVA" value="886" />
+          <entry key="PLAIN_TEXT" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -127,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/Untitled.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -144,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+            <state relative-caret-position="228">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1826#1827#0" expanded="true" />
@@ -278,7 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="43" />
     <option name="y" value="3" />
     <option name="width" value="1154" />
@@ -318,7 +289,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556105368648" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556105426062" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -515,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556094296716</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Exit &amp; Save NotPade">
+      <created>1556105437571</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1556105437571</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -523,7 +501,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2292176" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -534,7 +511,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26286355" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26286355" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -614,7 +591,8 @@
     <MESSAGE value="Set Status Bar" />
     <MESSAGE value="New file and Save" />
     <MESSAGE value="Name NotPade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Name NotPade" />
+    <MESSAGE value="Exit &amp; Save NotPade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exit &amp; Save NotPade" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/FrictionFfText.java" />
@@ -804,6 +782,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NewFileNameSave.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/NewFileFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -818,24 +803,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewFileNameSave.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Untitled.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NotePadeFrame/ExitFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+        <state relative-caret-position="228">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1826#1827#0" expanded="true" />
