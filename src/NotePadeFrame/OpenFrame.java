@@ -38,7 +38,7 @@ public class OpenFrame extends JFrame implements ActionListener {
 
         fileName = fileChooser.getSelectedFile().getPath();
 
-        fileName = fileName ;
+//        fileName = fileName ;
 
         new StartFrame(textArea);
 

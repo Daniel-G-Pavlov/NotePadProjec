@@ -7,6 +7,7 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class StartFrame extends JFrame {
 
@@ -23,10 +24,11 @@ public class StartFrame extends JFrame {
     private JLabel labelStatusBar = new JLabel();
     private JButton button = new JButton();
     public boolean dontSaveCommand = true;
-    public String fileName = "Untitled";
+    public String fileName ;
     public String fontName = "Arial";
     public int fontStyle = 1;
     public int fontSize = 15;
+    public String fileNameNew;
     private Action[] textActions = {new DefaultEditorKit.CutAction(),
             new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
@@ -53,6 +55,10 @@ public class StartFrame extends JFrame {
     protected static void getFontFrameNew(JTextArea textArea) {
     }
 
+    public static void getTitle(String fileName) {
+
+    }
+
     public JTextArea getTextArea() {
         return textArea;
     }
@@ -76,9 +82,11 @@ public class StartFrame extends JFrame {
         this.fileName = fileName;
     }
 
-    public StartFrame() {
+    public StartFrame()  {
 
-        super("Font");
+
+        ReadWriteFileName();
+        fileName = fileNameNew;
 
         MenuBar menuBar = new MenuBar();
 
@@ -88,9 +96,7 @@ public class StartFrame extends JFrame {
         panel.add(labelStatusBar, BorderLayout.SOUTH);
         FontFrameSet();
 
-        setTitle(fileName + " - NotePade");
-        setSize(600, 500);
-        setLocation(250, 30);
+        TitleSet(fileName);
 
         setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -131,7 +137,14 @@ public class StartFrame extends JFrame {
         MenuBar.saveAs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaveAsFrame saveAsFrame = new SaveAsFrame(fileName,textArea);
+
+                try {
+                    SaveAsFrame saveAsFrame = new SaveAsFrame(fileName,textArea);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+
             }
         });
 
@@ -209,6 +222,78 @@ public class StartFrame extends JFrame {
                 AboutFrame aboutFrame = new AboutFrame();
             }
         });
+    }
+
+    private void ReadWriteFileName() {
+        File file = new File("NewFileNameSave.txt");
+        Scanner fileReader = null;
+        try {
+            fileReader = new Scanner(file, "windows-1251");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (fileReader.hasNextLine()) {
+            fileNameNew = fileReader.nextLine();
+        }
+        fileReader.close();
+
+        System.out.println(fileNameNew + " 99");
+
+        BufferedWriter writer = null;
+        try
+        {System.out.println(fileNameNew + " 9");
+            writer = new BufferedWriter( new FileWriter( "NewFileNameSave.txt"));
+            writer.write( fileNameNew);
+        }
+        catch ( IOException e)
+        {System.out.println(fileNameNew + " 10");
+        }
+        finally
+        {
+            try
+            {System.out.println(fileNameNew + " 8");
+                if ( writer != null)
+                    writer.close( );
+            }
+            catch ( IOException e)
+            {
+            }
+        }
+    }
+
+
+//    private String WriteFileName(String fileName) throws FileNotFoundException {
+//        BufferedWriter writer = null;
+//        try
+//        {
+//            writer = new BufferedWriter( new FileWriter( "NewFileNameSave.txt"));
+//            writer.write( fileName);
+//        }
+//        catch ( IOException e)
+//        {
+//        }
+//        finally
+//        {
+//            try
+//            {
+//                if ( writer != null)
+//                    writer.close( );
+//            }
+//            catch ( IOException e)
+//            {
+//            }
+//        }
+//        return fileName;
+//    }
+
+    private PrintStream FileNameNewS(PrintStream printf) {
+        return printf;
+    }
+
+    private void TitleSet(String fileName) {
+        setTitle(fileName + " - NotePade");
+        setSize(600, 500);
+        setLocation(250, 30);
     }
 
     private void StatusBarSet() {
