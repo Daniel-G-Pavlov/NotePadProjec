@@ -7,26 +7,17 @@ import java.io.IOException;
 
 public class WriterFileNames {
 
-    public WriterFileNames( String fileName)  throws FileNotFoundException{
-        System.out.println(fileName + " 97");
+    public WriterFileNames( String fileName ) throws FileNotFoundException {
         BufferedWriter writer = null;
-        try
-        {
-            writer = new BufferedWriter( new FileWriter( "NewFileNameSave.txt"));
-            writer.write( fileName);
-        }
-        catch ( IOException e)
-        {
-        }
-        finally
-        {
-            try
-            {
-                if ( writer != null)
-                    writer.close( );
-            }
-            catch ( IOException e)
-            {
+        try {
+            writer = new BufferedWriter(new FileWriter("NewFileNameSave.txt"));
+            writer.write(fileName);
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (writer != null)
+                    writer.close();
+            } catch (IOException e) {
             }
         }
     }

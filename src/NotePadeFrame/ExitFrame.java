@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
+import static NotePadeFrame.StartFrame.textArea;
+
 public class ExitFrame extends JFrame {
 
     JFrame frame = new JFrame();
@@ -24,7 +26,7 @@ public class ExitFrame extends JFrame {
         panel.setLayout(null);
         getContentPane().add(panel);
 
-        textField.setText("Do you want to save changes to Untitled?");
+        textField.setText("Do you want to save changes to file?");
         textField.setEditable(false);
         Font font = new Font("Arial", Font.BOLD, 25);
         textField.setFont(font);
@@ -51,7 +53,8 @@ public class ExitFrame extends JFrame {
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-
+                SaveFrame saveFrame = new SaveFrame(fileName,textArea);
+                System.exit(ExitFrame.EXIT_ON_CLOSE);
             }
         });
 

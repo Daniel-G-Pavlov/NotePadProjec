@@ -38,16 +38,18 @@ public SaveAsFrame (String fileName, JTextArea textArea) throws IOException {
         }
     }
 
+
+
+    SaveFrame saveFrame = new SaveFrame("Untitled.txt",textArea);
+
     if (paramString(SAVE_DIALOG))
-            {fileChooser.getSelectedFile();
-            fileName = String.valueOf(fileChooser.getSelectedFile());
-                    saveClicked(fileName);
+    {fileChooser.getSelectedFile();
+        fileName = String.valueOf(fileChooser.getSelectedFile());
+        saveClicked(fileName);
     }
 
-    System.out.println(fileName + " 98");
-
     WriterFileNames writerFileNames = new WriterFileNames(fileName);
-
+    saveFrame = new SaveFrame(fileName,textArea);
 
     StartFrame.getTitle(fileName);
     return ;

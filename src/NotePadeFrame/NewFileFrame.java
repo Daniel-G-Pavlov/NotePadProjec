@@ -6,9 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.*;
-
 import static NotePadeFrame.StartFrame.*;
-
 
 public class NewFileFrame extends JFrame implements ActionListener {
 
@@ -20,9 +18,10 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JFileChooser fileChooser = new JFileChooser();
     private JMenuBar menuBar = new JMenuBar();
     private JTextField textField = new JTextField();
-    public String fileName = "Untitled";
+//    public String fileName = "Untitled";
 
     public NewFileFrame( String fileName, JTextArea textArea ) {
+        super(fileName);
 
         setTitle("Notpad");
         setSize(600, 600);
@@ -35,9 +34,8 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(NewFileFrame.DISPOSE_ON_CLOSE);
 
-
         textField.setEditable(false);
-        textField.setText("Do you want to save changes to " + this.fileName + "?");
+        textField.setText("Do you want to save changes to " + fileName + "?");
         Font font = new Font("Arial", Font.BOLD, 15);
         textField.setFont(font);
         textField.setBounds(20, 20, 300, 20);
@@ -64,8 +62,6 @@ public class NewFileFrame extends JFrame implements ActionListener {
         buttonCansel.setVisible(true);
         panel.add(buttonCansel);
 
-
-
         buttonCansel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
@@ -76,6 +72,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
         buttonDontSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
+
 
                 System.out.println("Печат не записвай");
                 dontSaveClicked();
@@ -124,6 +121,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
         if (e.getSource() == buttonSave) {
             final JFileChooser jFileChooser = new JFileChooser();
             int returnVal = jFileChooser.showOpenDialog(NotePadeFrame.NewFileFrame.this);
+            JEditorPane getTextArea = null;
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = jFileChooser.getSelectedFile();
                 getTextArea.setText("Selected file: " + file.getName());
@@ -143,15 +141,21 @@ public class NewFileFrame extends JFrame implements ActionListener {
     }
 
     private void dontSaveClicked() {
-        getTextArea = new TextArea();
+         StartFrame startFrame = (StartFrame) StartFrame.getScrollPane(null);
 
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
     private void saveClicked() {
-        getTextArea = new TextArea();
+
+        new StartFrame(textArea(20,30));
+
 
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+
+    private Object textArea( int i, int i1 ) {
+        return i ;
     }
 
 }
