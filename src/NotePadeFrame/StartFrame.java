@@ -164,6 +164,35 @@ public class StartFrame extends JFrame {
             }
         });
 
+
+        MenuBar.cut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                textArea.cut();
+            }
+        });
+
+        MenuBar.copy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                textArea.copy();
+            }
+        });
+
+        MenuBar.paste.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                textArea.paste();
+            }
+        });
+
+        MenuBar.delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                textArea.setText(textArea.getText().replace(textArea.getSelectedText(),""));
+            }
+        });
+
         MenuBar.find.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
@@ -233,7 +262,6 @@ public class StartFrame extends JFrame {
         catch (Exception e){
                 JOptionPane.showMessageDialog(null,e);
             }
-
 
     }
 

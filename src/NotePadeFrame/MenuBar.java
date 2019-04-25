@@ -47,10 +47,10 @@ public class MenuBar extends JMenuBar {
         file.add(exit);
 
         menuBar.add(edit);
-//        edit.add(cut);
-//        edit.add(copy);
-//        edit.add(paste);
-//        edit.add(delete);
+        edit.add(cut);
+        edit.add(copy);
+        edit.add(paste);
+        edit.add(delete);
         edit.add(find);
         edit.add(findNext);
         edit.add(replace);
