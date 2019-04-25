@@ -39,23 +39,21 @@ public class OpenFrame extends JFrame implements ActionListener {
 
         fileName = fileChooser.getSelectedFile().getPath();
 
-        File file = new File(fileName);
-        Scanner fileReader = new Scanner(file, "windows-1251");
-
-        int lineNumber = 0;
-        while (fileReader.hasNextLine()) {
-            lineNumber++;
-            System.out.printf("Line %d: %s%n", lineNumber, fileReader.nextLine());
+        try {
+            FileReader reader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            textArea.read(bufferedReader,null);
+            bufferedReader.close();
         }
-        new StartFrame.setNameFrame(fileName);
-        fileReader.close();
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
 
     @Override
     public void actionPerformed( ActionEvent e ) {
 
     }
-
 }
 
 

@@ -31,6 +31,7 @@ public class StartFrame extends JFrame {
     public int fontStyle = 1;
     public int fontSize = 15;
     public String fileNameNew;
+    public String nextLine;
     private Action[] textActions = {new CutAction(),
             new CopyAction(), new PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
@@ -55,6 +56,7 @@ public class StartFrame extends JFrame {
 
     public static void getTitle( String fileName ) {
     }
+
 
     public JTextArea getTextArea() {
         return textArea;
@@ -85,11 +87,13 @@ public class StartFrame extends JFrame {
         this.fileName = fileName;
     }
 
-    public StartFrame(  ) {
+    public StartFrame(  ){
 
         ReadWriteFileName();
         fileName = fileNameNew;
         MenuBar menuBar = new MenuBar();
+
+        getTextArea(nextLine);
 
         CutCopyPastActionSupport support = new CutCopyPastActionSupport();
         support.setPopup(textArea, textField);
@@ -273,6 +277,17 @@ public class StartFrame extends JFrame {
         textArea.setFont(new Font(fontName, fontStyle, fontSize));
         panel.add(scrollPane, BorderLayout.CENTER);
     }
+
+    public void getTextArea(String nextLine) {
+
+        File file = new File("Untitled.txt");
+
+
+
+    }
+
+
+
 
     public JMenuBar getJMenuBar() {
         return MenuBar.menuBar;
