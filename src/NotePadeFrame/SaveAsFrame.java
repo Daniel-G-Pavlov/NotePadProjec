@@ -24,49 +24,48 @@ public class SaveAsFrame extends JFrame implements ActionListener {
     private JTextArea textArea = new JTextArea();
     private JButton buttonSaveFile;
 
-public SaveAsFrame (String fileName, JTextArea textArea) throws IOException {
+    public SaveAsFrame( String fileName, JTextArea textArea ) throws IOException {
 
-    JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-    fileChooser.setDialogTitle("Save As..");
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
-    fileChooser.addChoosableFileFilter(filter);
+        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        fileChooser.setDialogTitle("Save As..");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT", "txt");
+        fileChooser.addChoosableFileFilter(filter);
 
-    int returnValue = fileChooser.showSaveDialog(null);
-    if (returnValue == JFileChooser.APPROVE_OPTION) {
-        if (fileChooser.getSelectedFile().isDirectory()) {
-            System.out.println("You selected the directory: " + fileChooser.getSelectedFile());
+        int returnValue = fileChooser.showSaveDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            if (fileChooser.getSelectedFile().isDirectory()) {
+                System.out.println("You selected the directory: " + fileChooser.getSelectedFile());
+            }
         }
+
+
+        SaveFrame saveFrame = new SaveFrame("Untitled.txt", textArea);
+
+        if (paramString(SAVE_DIALOG)) {
+            fileChooser.getSelectedFile();
+            fileName = String.valueOf(fileChooser.getSelectedFile());
+            saveClicked(fileName);
+        }
+
+        WriterFileNames writerFileNames = new WriterFileNames(fileName);
+        saveFrame = new SaveFrame(fileName, textArea);
+
+        StartFrame.getTitle(fileName);
+        return;
     }
 
-
-
-    SaveFrame saveFrame = new SaveFrame("Untitled.txt",textArea);
-
-    if (paramString(SAVE_DIALOG))
-    {fileChooser.getSelectedFile();
-        fileName = String.valueOf(fileChooser.getSelectedFile());
-        saveClicked(fileName);
+    private boolean paramString( int saveDialog ) {
+        return true;
     }
 
-    WriterFileNames writerFileNames = new WriterFileNames(fileName);
-    saveFrame = new SaveFrame(fileName,textArea);
-
-    StartFrame.getTitle(fileName);
-    return ;
-    }
-
-    private boolean paramString(int saveDialog) {
-    return true;
-    }
-
-    private void saveClicked(String fileName) {
+    private void saveClicked( String fileName ) {
         getTextArea = new TextArea();
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 BufferedWriter bf = null;
                 try {
-                    bf = new BufferedWriter(new FileWriter( fileName));
+                    bf = new BufferedWriter(new FileWriter(fileName));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

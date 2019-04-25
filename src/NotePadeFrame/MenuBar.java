@@ -2,7 +2,7 @@ package NotePadeFrame;
 
 import javax.swing.*;
 
-public class MenuBar {
+public class MenuBar extends JMenuBar {
 
     public static JMenuBar menuBar = new JMenuBar();
     public static JMenu file, edit, format, view, help;
@@ -47,10 +47,10 @@ public class MenuBar {
         file.add(exit);
 
         menuBar.add(edit);
-        edit.add(cut);
-        edit.add(copy);
-        edit.add(paste);
-        edit.add(delete);
+//        edit.add(cut);
+//        edit.add(copy);
+//        edit.add(paste);
+//        edit.add(delete);
         edit.add(find);
         edit.add(findNext);
         edit.add(replace);

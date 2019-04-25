@@ -78,7 +78,7 @@ public class ReplaceFrame extends JFrame {
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed( ActionEvent e ) {
                 cancelClicked();
             }
         });

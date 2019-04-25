@@ -12,13 +12,12 @@ public class SaveFrame extends JFrame implements ActionListener {
     public SaveFrame( String fileName, JTextArea textArea ) {
         BufferedWriter bf = null;
         try {
-            bf = new BufferedWriter(new FileWriter(fileName ));
+            bf = new BufferedWriter(new FileWriter(fileName));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
         try {
             bf.write(textArea.getText());
-//            bf.write(System.out.println("\n"));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -35,7 +34,7 @@ public class SaveFrame extends JFrame implements ActionListener {
 
         BufferedWriter bfUntitled = null;
         try {
-            bfUntitled = new BufferedWriter(new FileWriter("Untitled.txt" ));
+            bfUntitled = new BufferedWriter(new FileWriter("Untitled.txt"));
         } catch (IOException e1) {
             e1.printStackTrace();
         }

@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Scanner;
 
+import static NotePadeFrame.StartFrame.getScrollPane;
 import static NotePadeFrame.StartFrame.getTextArea;
+import static NotePadeFrame.StartFrame.getTextField;
 
 public class OpenFrame extends JFrame implements ActionListener {
     private JPanel panel = new JPanel();
@@ -21,7 +23,7 @@ public class OpenFrame extends JFrame implements ActionListener {
     private JButton buttonOpenFile;
 
 
-    public OpenFrame(String fileName, JTextArea textArea) throws IOException {
+    public OpenFrame( String fileName, JTextArea textArea ) throws IOException {
 
         JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         fileChooser.setDialogTitle("Open");
@@ -35,14 +37,9 @@ public class OpenFrame extends JFrame implements ActionListener {
             }
         }
 
-
         fileName = fileChooser.getSelectedFile().getPath();
 
-//        fileName = fileName ;
-
-        new StartFrame(textArea);
-
-        File file = new File(fileName  );
+        File file = new File(fileName);
         Scanner fileReader = new Scanner(file, "windows-1251");
 
         int lineNumber = 0;

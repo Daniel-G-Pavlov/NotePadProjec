@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.*;
+
 import static NotePadeFrame.StartFrame.*;
 
 public class NewFileFrame extends JFrame implements ActionListener {
@@ -135,27 +136,23 @@ public class NewFileFrame extends JFrame implements ActionListener {
         }
     }
 
-
     private void cancelClicked() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
     private void dontSaveClicked() {
-         StartFrame startFrame = (StartFrame) StartFrame.getScrollPane(null);
-
+        StartFrame.getTextArea = null;
+        StartFrame.getScrollPane(getTextArea);
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
     private void saveClicked() {
-
-        new StartFrame(textArea(20,30));
-
-
+        new StartFrame((JTextArea) textArea(20, 30));
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
     private Object textArea( int i, int i1 ) {
-        return i ;
+        return i;
     }
 
 }

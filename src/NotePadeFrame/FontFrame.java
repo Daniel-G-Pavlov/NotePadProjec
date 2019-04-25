@@ -6,7 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class FontFrame extends JPanel{
+public class FontFrame extends JPanel {
     private Font thisFont;
     private JList jFace, jStyle, jSize;
     private JDialog dialog;
@@ -14,7 +14,7 @@ public class FontFrame extends JPanel{
     JTextArea textArea;
     private boolean ok;
 
-    public FontFrame(Font withFont) {
+    public FontFrame( Font withFont ) {
         thisFont = withFont;
 
         String[] fontNames =
@@ -25,7 +25,7 @@ public class FontFrame extends JPanel{
         jFace.setSelectedIndex(0);
 
         jFace.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent ev) {
+            public void valueChanged( ListSelectionEvent ev ) {
                 textArea.setFont(createFont());
             }
         });
@@ -35,7 +35,7 @@ public class FontFrame extends JPanel{
         jStyle.setSelectedIndex(0);
 
         jStyle.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent ev) {
+            public void valueChanged( ListSelectionEvent ev ) {
                 textArea.setFont(createFont());
             }
         });
@@ -47,7 +47,7 @@ public class FontFrame extends JPanel{
         jSize.setSelectedIndex(0);
 
         jSize.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent ev) {
+            public void valueChanged( ListSelectionEvent ev ) {
                 textArea.setFont(createFont());
             }
         });
@@ -71,7 +71,7 @@ public class FontFrame extends JPanel{
 
         okButton.addActionListener(
                 new ActionListener() {
-                    public void actionPerformed(ActionEvent ev) {
+                    public void actionPerformed( ActionEvent ev ) {
                         ok = true;
                         FontFrame.this.thisFont = FontFrame.this.createFont();
                         dialog.setVisible(false);
@@ -80,7 +80,7 @@ public class FontFrame extends JPanel{
 
         cancelButton.addActionListener(
                 new ActionListener() {
-                    public void actionPerformed(ActionEvent ev) {
+                    public void actionPerformed( ActionEvent ev ) {
                         dialog.setVisible(false);
                     }
                 });
@@ -141,7 +141,7 @@ public class FontFrame extends JPanel{
 
     }
 
-    public boolean showDialog(Component parent, String title) {
+    public boolean showDialog( Component parent, String title ) {
         ok = false;
 
         Frame owner = null;

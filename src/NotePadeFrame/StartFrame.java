@@ -9,14 +9,16 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.Scanner;
 
+import static javax.swing.text.DefaultEditorKit.*;
+
 public class StartFrame extends JFrame {
 
     public static StartFrame getScrollPane;
     public static TextArea getTextArea;
-//    public static TextArea textArea;
+    public static String getTextField;
     FontFrame dialog = null;
     public JPanel panel = new JPanel();
-    private JTextField textField = new JTextField();
+    private static JTextField textField = new JTextField();
     public static int col = 1;
     public static int row = 1;
     private JFrame frame = new JFrame();
@@ -30,31 +32,19 @@ public class StartFrame extends JFrame {
     public int fontStyle = 1;
     public int fontSize = 15;
     public String fileNameNew;
-    private Action[] textActions = {new DefaultEditorKit.CutAction(),
-            new DefaultEditorKit.CopyAction(), new DefaultEditorKit.PasteAction(),};
+    private Action[] textActions = {new CutAction(),
+            new CopyAction(), new PasteAction(),};
     private JPopupMenu popup = new JPopupMenu();
     public PopupListener popupListener = new PopupListener();
 
-    public StartFrame( String fileName, JTextArea textArea, JScrollPane scrollPane ) throws HeadlessException {
+    public StartFrame( String fileName, JTextArea textArea, JScrollPane scrollPane, JTextField textField ) throws HeadlessException {
         this.fontName = fileName;
         this.textArea = textArea;
         this.scrollPane = scrollPane;
+        this.textField = textField;
     }
-
-    private static String CUT_ACTION_NAME = "cut";
-    private static String COPY_ACTION_NAME = "copy";
-    private static String PASTE_ACTION_NAME = "paste";
-    private static String DELETE_ACTION_NAME = "delete";
 
     public StartFrame( JTextArea textArea ) {
-
-    }
-
-    public StartFrame( TextArea textArea ) {
-
-    }
-
-    public StartFrame( Object textArea ) {
     }
 
     public static StartFrame getScrollPane( TextArea textArea ) {
@@ -65,7 +55,6 @@ public class StartFrame extends JFrame {
     }
 
     public static void getTitle( String fileName ) {
-
     }
 
     public JTextArea getTextArea() {
@@ -98,10 +87,15 @@ public class StartFrame extends JFrame {
 
     public StartFrame() {
 
-
         ReadWriteFileName();
         fileName = fileNameNew;
         MenuBar menuBar = new MenuBar();
+
+        CutCopyPastActionSupport support = new CutCopyPastActionSupport();
+        support.setPopup(textArea, textField);
+        menuBar.add(support.getMenu());
+        frame.setJMenuBar(menuBar);
+        frame.add(textField, BorderLayout.NORTH);
 
         panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         panel.setLayout(new BorderLayout(5, 5));
@@ -110,7 +104,6 @@ public class StartFrame extends JFrame {
         FontFrameSet();
 
         TitleSet(fileName);
-
         setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         setVisible(true);
         repaint();
@@ -162,32 +155,6 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 ExitFrame exitFrame = new ExitFrame(fileName);
-            }
-        });
-
-        MenuBar.cut.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
-                CutFram cutFram = new CutFram("Cut");
-            }
-        });
-
-        MenuBar.copy.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
-                CopyFrame copyFrame = new CopyFrame();
-            }
-        });
-
-        MenuBar.paste.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
-            }
-        });
-
-        MenuBar.delete.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
             }
         });
 
@@ -262,10 +229,6 @@ public class StartFrame extends JFrame {
         }
     }
 
-    private PrintStream FileNameNewS( PrintStream printf ) {
-        return printf;
-    }
-
     private void TitleSet( String fileName ) {
         setTitle(fileName + " - NotePade");
         setSize(600, 500);
@@ -303,7 +266,7 @@ public class StartFrame extends JFrame {
         return MenuBar.menuBar;
     }
 
-    public JComponent getCutAction() {
+    public JComponent getCutAction( String cutAction ) {
         return panel;
     }
 
@@ -324,23 +287,6 @@ public class StartFrame extends JFrame {
                 popup.show(e.getComponent(),
                         e.getX(), e.getY());
             }
-        }
-    }
-
-    public class CutFram extends TextAction {
-
-        public CutFram( String name ) {
-            super(name);
-        }
-
-        @Override
-        public void actionPerformed( ActionEvent e ) {
-            popup.add(new JMenuItem((Action) getCutAction()));
-            JTextComponent target = getTextComponent(e);
-            if (target != null) {
-                target.cut();
-            }
-            getCutAction();
         }
     }
 
