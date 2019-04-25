@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 public class FontFrame extends JPanel {
+    private  Font withFont;
     private Font thisFont;
     private JList jFace, jStyle, jSize;
     private JDialog dialog;
@@ -15,7 +16,7 @@ public class FontFrame extends JPanel {
     private boolean ok;
 
     public FontFrame( Font withFont ) {
-        thisFont = withFont;
+        thisFont = this.withFont;  // Font withFont
 
         String[] fontNames =
                 GraphicsEnvironment
@@ -110,7 +111,11 @@ public class FontFrame extends JPanel {
 
         textArea.setFont(thisFont);
         textArea.append("\nAaBbCcDdEeFf");
+
+        centerPanel.setVisible(true);
+
     }
+
 
     public Font createFont() {
         Font fnt = thisFont;

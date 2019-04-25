@@ -3,7 +3,6 @@ package NotePadeFrame;
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
-import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -65,6 +64,7 @@ public class StartFrame extends JFrame {
         this.textArea = textArea;
     }
 
+
     private static void getScrollPane( StartFrame textArea ) {
     }
 
@@ -85,7 +85,7 @@ public class StartFrame extends JFrame {
         this.fileName = fileName;
     }
 
-    public StartFrame() {
+    public StartFrame(  ) {
 
         ReadWriteFileName();
         fileName = fileNameNew;
@@ -93,9 +93,7 @@ public class StartFrame extends JFrame {
 
         CutCopyPastActionSupport support = new CutCopyPastActionSupport();
         support.setPopup(textArea, textField);
-        menuBar.add(support.getMenu());
-        frame.setJMenuBar(menuBar);
-        frame.add(textField, BorderLayout.NORTH);
+//        frame.setJMenuBar(menuBar);
 
         panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         panel.setLayout(new BorderLayout(5, 5));
@@ -178,6 +176,19 @@ public class StartFrame extends JFrame {
             }
         });
 
+        MenuBar.fontStyle.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    if (dialog == null)
+                        dialog = new FontFrame(textArea.getFont());
+                    if(dialog.showDialog(StartFrame.this,"Choose a font"))
+                    {
+                        StartFrame.this.textArea.setFont(dialog.createFont());
+                    }
+                }
+            });
         MenuBar.statusBar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
@@ -199,6 +210,7 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 AboutFrame aboutFrame = new AboutFrame();
+
             }
         });
     }

@@ -19,12 +19,11 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JFileChooser fileChooser = new JFileChooser();
     private JMenuBar menuBar = new JMenuBar();
     private JTextField textField = new JTextField();
-//    public String fileName = "Untitled";
 
     public NewFileFrame( String fileName, JTextArea textArea ) {
         super(fileName);
 
-        setTitle("Notpad");
+        setTitle(fileName);
         setSize(600, 600);
         setLocation(350, 80);
         panel.setLayout(null);
@@ -36,7 +35,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(NewFileFrame.DISPOSE_ON_CLOSE);
 
         textField.setEditable(false);
-        textField.setText("Do you want to save changes to " + fileName + "?");
+        textField.setText("Do you want to save changes ?");
         Font font = new Font("Arial", Font.BOLD, 15);
         textField.setFont(font);
         textField.setBounds(20, 20, 300, 20);
