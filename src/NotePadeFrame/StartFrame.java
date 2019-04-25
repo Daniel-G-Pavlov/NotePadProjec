@@ -93,6 +93,10 @@ public class StartFrame extends JFrame {
         fileName = fileNameNew;
         MenuBar menuBar = new MenuBar();
 
+        OldFile();
+        SaveUntitledFile saveUntitledFile = new SaveUntitledFile(fileName, textArea);
+
+
         getTextArea(nextLine);
 
         CutCopyPastActionSupport support = new CutCopyPastActionSupport();
@@ -217,6 +221,20 @@ public class StartFrame extends JFrame {
 
             }
         });
+    }
+
+    private void OldFile() {
+        try {
+            FileReader reader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            textArea.read(bufferedReader,null);
+            bufferedReader.close();
+        }
+        catch (Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+
+
     }
 
     private void ReadWriteFileName() {
