@@ -17,6 +17,8 @@ public class ReplaceFrame extends JFrame {
     private JButton replaceAllButton = new JButton();
     private JButton cancelButton = new JButton();
     private JCheckBox matchCase = new JCheckBox();
+    private JTextField fromField = new JTextField(8);
+    private JTextField toField = new JTextField(8);
 
     public ReplaceFrame() {
 
@@ -82,6 +84,23 @@ public class ReplaceFrame extends JFrame {
                 cancelClicked();
             }
         });
+
+        replaceButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                String from = StartFrame.textArea.getText();
+                int start = StartFrame.textArea.getText().indexOf(from);
+                if (start >= 0 && from.length() > 0)
+                    StartFrame.textArea.replaceRange(toField.getText(), start, start
+                            + from.length());
+            }
+        });
+
+        panel.add(fromField);
+
+        panel.add(new JLabel("with"));
+
+        panel.add(toField);
+
     }
 
     private void cancelClicked() {

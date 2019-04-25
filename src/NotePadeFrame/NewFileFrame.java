@@ -8,6 +8,7 @@ import java.awt.event.WindowEvent;
 import java.io.*;
 
 import static NotePadeFrame.StartFrame.*;
+import static NotePadeFrame.StartFrame.textArea;
 
 public class NewFileFrame extends JFrame implements ActionListener {
 
@@ -20,7 +21,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
     private JMenuBar menuBar = new JMenuBar();
     private JTextField textField = new JTextField();
 
-    public NewFileFrame( String fileName, JTextArea textArea ) {
+    public NewFileFrame(String fileName, JTextArea textArea) {
         super(fileName);
 
         setTitle(fileName);
@@ -64,14 +65,14 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
         buttonCansel.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 cancelClicked();
             }
         });
 
         buttonDontSave.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
 
                 System.out.println("Печат не записвай");
@@ -81,7 +82,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
 
         buttonSave.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
 
                 BufferedWriter bf = null;
                 try {
@@ -104,7 +105,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                saveClicked();
+                saveClicked(fileName, textArea);
             }
         });
 
@@ -117,7 +118,7 @@ public class NewFileFrame extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed( ActionEvent e ) {
+    public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttonSave) {
             final JFileChooser jFileChooser = new JFileChooser();
             int returnVal = jFileChooser.showOpenDialog(NotePadeFrame.NewFileFrame.this);
@@ -140,17 +141,122 @@ public class NewFileFrame extends JFrame implements ActionListener {
     }
 
     private void dontSaveClicked() {
+
+        BufferedWriter bf = null;
+        try {
+            bf = new BufferedWriter(new FileWriter("Untitled.txt"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.write("");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.flush();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+
+        try {
+            FileReader reader = new FileReader("Untitled.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            textArea.read(bufferedReader, null);
+            bufferedReader.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+
+    private void saveClicked(String fileName, JTextArea textArea) {
         StartFrame.getTextArea = null;
-        StartFrame.getScrollPane(getTextArea);
+
+
+        BufferedWriter bf = null;
+        try {
+            bf = new BufferedWriter(new FileWriter(fileName));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.write(textArea.getText());
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.flush();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+        try {
+            bf = new BufferedWriter(new FileWriter("Untitled.txt"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.write("");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.flush();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+
+        try {
+            FileReader reader = new FileReader("Untitled.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            textArea.read(bufferedReader, null);
+            bufferedReader.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        try {
+            bf = new BufferedWriter(new FileWriter("NewFileNameSave.txt"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.write("Untitled.txt");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.flush();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            bf.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 
-    private void saveClicked() {
-        new StartFrame((JTextArea) textArea(20, 30));
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-    }
-
-    private Object textArea( int i, int i1 ) {
+    private Object textArea(int i, int i1) {
         return i;
     }
 

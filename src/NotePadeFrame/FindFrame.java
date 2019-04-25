@@ -69,8 +69,15 @@ public class FindFrame extends JFrame {
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed( ActionEvent e ) {
+            public void actionPerformed(ActionEvent e) {
                 cancelClicked();
+            }
+        });
+
+        findNextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
 
@@ -79,8 +86,8 @@ public class FindFrame extends JFrame {
         setResizable(false);
         setVisible(true);
         repaint();
-
     }
+
 
     private void cancelClicked() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));

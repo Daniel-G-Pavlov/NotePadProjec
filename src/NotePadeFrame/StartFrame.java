@@ -101,7 +101,6 @@ public class StartFrame extends JFrame {
 
         CutCopyPastActionSupport support = new CutCopyPastActionSupport();
         support.setPopup(textArea, textField);
-//        frame.setJMenuBar(menuBar);
 
         panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         panel.setLayout(new BorderLayout(5, 5));
@@ -210,6 +209,7 @@ public class StartFrame extends JFrame {
             @Override
             public void actionPerformed( ActionEvent e ) {
                 ReplaceFrame replaceFrame = new ReplaceFrame();
+                replaceFrame.show();
             }
         });
 
